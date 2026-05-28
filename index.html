@@ -86,12 +86,19 @@
         z-index: 100;
         background: #fff;
         border-bottom: 1px solid var(--B);
+        padding: 0;
+        height: 62px;
+        transition: box-shadow .2s;
+    }
+
+    .nav-inner {
+        max-width: 900px;
+        margin: 0 auto;
         padding: 0 3rem;
         display: flex;
         align-items: center;
         justify-content: space-between;
-        height: 62px;
-        transition: box-shadow .2s;
+        height: 100%;
     }
 
     nav.scrolled {
@@ -99,18 +106,13 @@
     }
 
     .nav-logo {
-        font-family: 'Lora', serif;
-        font-size: 16px;
-        font-weight: 600;
-        color: var(--T);
         background: none;
         border: none;
         cursor: pointer;
-        letter-spacing: .1px;
         display: flex;
         align-items: center;
-        max-width: 100px; 
-        height: auto;
+        padding: 0;
+        flex-shrink: 0;
     }
     
     .nav-logo picture,
@@ -561,14 +563,10 @@
     }
 
     .modal-body {
-        background: #fff;
-        border-radius: 6px;
-        padding: 36px 40px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 20px;
-        box-shadow: 0 24px 64px rgba(0,0,0,.18);
+        border-radius: 12px;
+        overflow: hidden;
+        line-height: 0;
+        box-shadow: 0 24px 64px rgba(0,0,0,.28);
         animation: qr-pop .22s cubic-bezier(0.34,1.56,0.64,1);
     }
 
@@ -579,51 +577,21 @@
 
     .qr-img {
         display: block;
-        image-rendering: crisp-edges;
-    }
-
-    .modal-title {
-        font-family: 'Lora', serif;
-        font-size: 15px;
-        font-weight: 600;
-        color: var(--T);
-        margin-bottom: 4px;
-    }
-
-    .modal-sub {
-        font-size: 12px;
-        color: var(--TL);
-        font-weight: 300;
-    }
-
-    .modal-link {
-        font-size: 13px;
-        color: var(--M);
-        font-weight: 500;
-        text-decoration: none;
-    }
-
-    .modal-close-btn {
-        margin-top: 4px;
-        background: none;
-        border: 1px solid var(--B);
-        border-radius: 3px;
-        padding: 8px 20px;
-        font-size: 12px;
-        color: var(--TM);
-        cursor: pointer;
-        font-family: 'DM Sans', sans-serif;
+        width: min(80vw, 360px);
+        height: auto;
+        border-radius: 12px;
     }
 
     /* ─── FOOTER ───────────────────────────────────────────────────────────────── */
     footer {
         background: #111;
-        padding: 56px 3rem 32px;
+        padding: 56px 0 32px;
     }
 
     .footer-content {
         max-width: 900px;
         margin: 0 auto;
+        padding: 0 3rem;
     }
 
     footer .grid-3 {
@@ -711,12 +679,20 @@
         inset: 0;
         z-index: 9999;
         background: var(--M);
-        transform: scaleY(0);
+        transform: scaleX(0);
+        transform-origin: left center;
         transition: transform 0.46s cubic-bezier(0.76, 0, 0.24, 1);
     }
 
     #transition-veil.veil-cover {
-        transform: scaleY(1);
+        transform: scaleX(1);
+    }
+
+    @media (max-width: 800px) {
+        #transition-veil,
+        #transition-veil.veil-cover {
+            display: none !important;
+        }
     }
 
     /* Fade in graduale all'Incrocio */
@@ -751,7 +727,7 @@
         .nav-desktop { display: none !important; }
         .nav-mobile-btn { display: flex !important; }
         
-        nav { padding: 0 1.5rem; }
+        .nav-inner { padding: 0 1.5rem; }
         .container { padding: 0 1.5rem !important; }
         section { padding: 64px 0 !important; }
 
@@ -787,27 +763,30 @@
         <div id="transition-veil" class="veil-idle"></div>
 
         <nav aria-label="Navigazione principale" id="main-nav">
-            <button class="nav-logo" data-page="home" aria-label="Torna alla Home">
-                <picture>
-                    <source srcset="assets/logo-300.webp 2x, assets/logo-100.webp 1x">
-                    <img src="assets/logo-100.webp" 
-                        alt="Guerriere Da Sempre" 
-                        width="233" 
-                        height="100" 
-                        style="width: 100%; height: auto; max-width: 100px;">
-                </picture>
-            </button>
+            <div class="nav-inner">
+                <button class="nav-logo" data-page="home" aria-label="Torna alla Home">
+                    <picture>
+                        <source srcset="assets/Logo-322px.png 2x, assets/logo-365px.png 3x" media="(min-width: 800px)">
+                        <source srcset="assets/logo-161px.png 1x, assets/Logo-322px.png 2x">
+                        <img src="assets/logo-161px.png"
+                            alt="Guerriere Da Sempre"
+                            width="464"
+                            height="161"
+                            style="width: auto; height: 36px;">
+                    </picture>
+                </button>
 
-            <ul class="nav-desktop">
-                <li><button class="nav-link active" data-page="home">Chi siamo</button></li>
-                <li><button class="nav-link" data-page="progetto">Il progetto</button></li>
-                <li><button class="nav-link" data-page="contatti">Contatti</button></li>
-            </ul>
+                <ul class="nav-desktop">
+                    <li><button class="nav-link active" data-page="home">Chi siamo</button></li>
+                    <li><button class="nav-link" data-page="progetto">Il progetto</button></li>
+                    <li><button class="nav-link" data-page="contatti">Contatti</button></li>
+                </ul>
 
-            <button class="nav-mobile-btn" aria-label="Apri menu" id="hamburger-btn">
-                <svg class="icon-menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
-                <svg class="icon-x hidden" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
-            </button>
+                <button class="nav-mobile-btn" aria-label="Apri menu" id="hamburger-btn">
+                    <svg class="icon-menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+                    <svg class="icon-x hidden" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+                </button>
+            </div>
         </nav>
 
         <div id="mobile-drawer" class="hidden">
@@ -1079,10 +1058,14 @@
 
         <div id="qr-modal" class="modal-overlay hidden">
             <div class="modal-body">
-                <img src="assets/ig_qr.webp" alt="QR code Instagram @guerrieredasempre" width="500" height="574" class="qr-img">
-                
-                
-                <button id="close-qr-btn" class="modal-close-btn">Chiudi</button>
+                <picture>
+                    <source srcset="assets/QR-ig-2350px.webp" media="(min-resolution: 1.5dppx)">
+                    <img src="assets/QR-ig-500px.webp"
+                        alt="QR code Instagram @guerrieredasempre"
+                        width="500"
+                        height="574"
+                        class="qr-img">
+                </picture>
             </div>
         </div>
 
@@ -1091,7 +1074,14 @@
                 <div class="grid-3 no-border-m">
                     <div>
                         <div class="footer-logo">
-                            Guerriere <em class="brand-accent-light">da Sempre</em>
+                            <picture>
+                                <source srcset="assets/Logo-322px.png 2x, assets/logo-365px.png 3x">
+                                <img src="assets/logo-161px.png"
+                                    alt="Guerriere Da Sempre"
+                                    width="464"
+                                    height="161"
+                                    style="width: auto; height: 40px; filter: brightness(0) invert(1);">
+                            </picture>
                         </div>
                         <p class="footer-info">
                             Progetto di volontariato fondato da Elena e Serena.<br>
@@ -1226,21 +1216,41 @@
     // Navigazione orchestrata col Velo Magenta
     function navigateTo(page, clickEvent = null) {
         if (page === currentPage || isTransitioning) return;
+
+        const isMobile = window.innerWidth <= 800;
+
+        if (isMobile) {
+            // Su mobile: nessuna animazione, cambio istantaneo
+            document.querySelectorAll('.page-content').forEach(p => p.classList.remove('active'));
+            document.getElementById(`page-${page}`).classList.add('active');
+            document.querySelectorAll(`[data-page]`).forEach(btn => {
+                if(btn.getAttribute('data-page') === page && btn.classList.contains('nav-link')) {
+                    btn.classList.add('active');
+                } else if (btn.classList.contains('nav-link')) {
+                    btn.classList.remove('active');
+                }
+            });
+            currentPage = page;
+            updateSEO(page);
+            window.scrollTo({ top: 0, behavior: "instant" });
+            initScrollAnimations();
+            return;
+        }
+
         isTransitioning = true;
 
         const veil = document.getElementById("transition-veil");
         
-        // Imposta l'origine della transizione in base al click del mouse
+        // Imposta l'origine orizzontale della transizione in base al click del mouse
         if (clickEvent) {
             const rect = clickEvent.currentTarget.getBoundingClientRect();
             const originX = `${rect.left + rect.width / 2}px`;
-            const originY = `${rect.top + rect.height / 2}px`;
-            veil.style.transformOrigin = `${originX} ${originY}`;
+            veil.style.transformOrigin = `${originX} center`;
         } else {
-            veil.style.transformOrigin = "50% 50%";
+            veil.style.transformOrigin = "left center";
         }
 
-        // Fase 1: Copertura (il velo sale)
+        // Fase 1: Copertura (il velo avanza da sinistra)
         veil.className = "veil-cover";
 
         setTimeout(() => {
@@ -1264,8 +1274,8 @@
             // Forza il riavvio immediato dell'IntersectionObserver sulla nuova pagina
             initScrollAnimations();
 
-            // Fase 2: Rivelazione (il velo si ritira verso l'alto)
-            veil.style.transformOrigin = "50% 0px";
+            // Fase 2: Rivelazione (il velo si ritira verso destra)
+            veil.style.transformOrigin = "right center";
             veil.className = "veil-idle";
 
             setTimeout(() => {
