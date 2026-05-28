@@ -1,1365 +1,1383 @@
-<!DOCTYPE html>
-<html lang="it">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="robots" content="index, follow">
-    <meta name="theme-color" content="#ae14a8">
-    
-    <title>Guerriere da Sempre</title>
-    <meta name="description" content="">
-    <link rel="canonical" href="">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
-    
-</head>
-<style>
-    /* ─── VARIABILI E RESET ────────────────────────────────────────────────────── */
-:root {
-    --M: #ae14a8;       /* Magenta Brand */
-    --B: #e0e0e0;       /* Border */
-    --BG: #f9f7f9;      /* Surface tinted */
-    --T: #1a1a1a;       /* Testo */
-    --TM: #555;         /* Testo medio */
-    --TL: #999;         /* Testo light */
-}
-
-*, *::before, *::after {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
-
-html {
-    scroll-behavior: smooth;
-}
-
-body {
-    font-family: 'DM Sans', sans-serif;
-    color: var(--T);
-    background: #fff;
-    font-size: 15px;
-    line-height: 1.7;
-    overflow-x: hidden;
-    zoom: 120%;
-}
-
-h1, h2, h3, h4 {
-    font-family: 'Lora', serif;
-}
-
-/* ─── LAYOUT E STRUTTURA ───────────────────────────────────────────────────── */
-.container {
-    max-width: 900px;
-    margin: 0 auto;
-    padding: 0 3rem;
-}
-
-section {
-    padding: 88px 0;
-    border-bottom: 1px solid var(--B);
-}
-
-.section-tinted { background-color: var(--BG); }
-.section-white { background-color: #fff; }
-
-.grid-2 {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 64px;
-}
-
-.grid-3 {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-}
-
-.gap-32 { gap: 32px; }
-.items-start { align-items: start; }
-.items-center { align-items: center; }
-
-/* ─── NAVIGAZIONE ──────────────────────────────────────────────────────────── */
-nav {
-    position: sticky;
-    top: 0;
-    z-index: 100;
-    background: #fff;
-    border-bottom: 1px solid var(--B);
-    padding: 0 3rem;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    height: 62px;
-    transition: box-shadow .2s;
-}
-
-nav.scrolled {
-    box-shadow: 0 1px 8px rgba(0,0,0,.05);
-}
-
-.nav-logo {
-    font-family: 'Lora', serif;
-    激font-size: 16px;
-    font-weight: 600;
-    color: var(--T);
-    background: none;
-    border: none;
-    cursor: pointer;
-    letter-spacing: .1px;
-}
-
-.brand-accent { color: var(--M); font-style: normal; }
-.brand-accent-light { color: #c96dc5; font-style: normal; }
-
-.nav-desktop {
-    list-style: none;
-    display: flex;
-    align-items: center;
-    gap: 0;
-}
-
-.nav-link {
-    font-size: 13px;
-    font-weight: 400;
-    color: var(--TM);
-    text-decoration: none;
-    padding: 6px 16px;
-    cursor: pointer;
-    background: none;
-    border: none;
-    font-family: 'DM Sans', sans-serif;
-    transition: color .15s;
-}
-
-.nav-link.active, .nav-link:hover {
-    color: var(--M);
-}
-
-.nav-mobile-btn {
-    display: none;
-    background: none;
-    border: none;
-    cursor: pointer;
-    color: var(--T);
-}
-
-.nav-mobile-btn svg {
-    width: 20px;
-    height: 20px;
-}
-
-#mobile-drawer {
-    position: fixed;
-    top: 62px;
-    left: 0;
-    right: 0;
-    background: #fff;
-    border-bottom: 1px solid var(--B);
-    z-index: 99;
-    padding: 1rem 1.5rem;
-    display: flex;
-    flex-direction: column;
-    gap: 4px;
-}
-
-/* ─── COMPONENTI UI BASE ────────────────────────────────────────────────────── */
-.eyebrow {
-    font-size: 11px;
-    font-weight: 500;
-    letter-spacing: 1.6px;
-    text-transform: uppercase;
-    color: var(--M);
-    margin-bottom: 16px;
-}
-
-.divider {
-    width: 32px;
-    height: 2px;
-    background: var(--M);
-    margin-bottom: 32px;
-}
-
-.btn {
-    display: inline-block;
-    text-decoration: none;
-    font-family: 'DM Sans', sans-serif;
-    font-size: 13px;
-    font-weight: 500;
-    border-radius: 3px;
-    padding: 11px 24px;
-    cursor: pointer;
-    border: none;
-    transition: opacity .15s, border-color .15s;
-}
-
-.btn-primary {
-    background: var(--M);
-    color: #fff;
-}
-
-.btn-outline {
-    background: transparent;
-    color: var(--T);
-    border: 1px solid #ccc;
-}
-
-.btn:hover {
-    opacity: 0.85;
-}
-
-/* ─── INTERFACCIA DELLE PAGINE ─────────────────────────────────────────────── */
-.page-content {
-    display: none;
-}
-.page-content.active {
-    display: block;
-}
-
-/* Hero */
-.section-hero {
-    padding: 96px 0 88px;
-    border-bottom: 1px solid var(--B);
-}
-
-.hero-grid {
-    display: grid;
-    grid-template-columns: 1fr 340px;
-    gap: 80px;
-    align-items: center;
-}
-
-.hero-title {
-    font-size: 40px;
-    font-weight: 600;
-    line-height: 1.25;
-    margin-bottom: 20px;
-    color: var(--T);
-}
-
-.text-italic { color: var(--M); font-style: italic; }
-
-.hero-lead {
-    font-size: 16px;
-    color: var(--TM);
-    font-weight: 300;
-    line-height: 1.8;
-    max-width: 560px;
-}
-
-.btn-group {
-    display: flex;
-    gap: 10px;
-    margin-top: 36px;
-}
-
-.hero-aside {
-    border-left: 1px solid var(--B);
-    padding-left: 48px;
-}
-
-.aside-eyebrow {
-    font-size: 11px;
-    letter-spacing: 1.4px;
-    text-transform: uppercase;
-    color: var(--TL);
-    margin-bottom: 20px;
-}
-
-.founder-card {
-    padding: 18px 0;
-}
-
-.founder-card h4 {
-    font-size: 15px;
-    font-weight: 600;
-    margin-bottom: 4px;
-}
-
-.founder-card p {
-    font-size: 13px;
-    color: var(--TM);
-    font-weight: 300;
-    line-height: 1.5;
-}
-
-/* Chi Siamo Extra */
-.quote-card {
-    margin-top: 40px;
-    padding: 24px 28px;
-    border-left: 3px solid var(--M);
-    background: var(--BG);
-}
-
-.quote-text {
-    font-family: 'Lora', serif;
-    font-size: 16px;
-    font-style: italic;
-    color: var(--T);
-    line-height: 1.7;
-}
-
-/* Testimonianze */
-.testimonial-box {
-    padding: 48px 56px;
-    border: 1px solid var(--B);
-    background-color: #fff;
-}
-
-.testimonial-box blockquote {
-    font-family: 'Lora', serif;
-    font-size: 20px;
-    font-style: italic;
-    color: var(--T);
-    line-height: 1.65;
-    margin-bottom: 24px;
-}
-
-.testimonial-box cite {
-    font-size: 13px;
-    color: var(--TL);
-    font-style: normal;
-}
-
-.testimonial-box cite strong {
-    color: var(--TM);
-    font-weight: 500;
-    font-size: 14px;
-    display: block;
-    margin-bottom: 2px;
-}
-
-/* Steps Box */
-.steps-box {
-    border: 1px solid var(--B);
-    border-radius: 2px;
-    background: #fff;
-}
-
-.step-row {
-    display: flex;
-    gap: 20px;
-    align-items: flex-start;
-    padding: 24px;
-    border-bottom: 1px solid var(--B);
-}
-
-.step-row:last-child {
-    border-bottom: none;
-}
-
-.step-num {
-    font-family: 'Lora', serif;
-    font-size: 13px;
-    font-weight: 600;
-    color: var(--M);
-    min-width: 20px;
-    margin-top: 2px;
-}
-
-.step-row h4 {
-    font-size: 14px;
-    font-weight: 600;
-    margin-bottom: 4px;
-}
-
-.step-row p {
-    font-size: 13px;
-    color: var(--TM);
-    font-weight: 300;
-    line-height: 1.6;
-}
-
-/* Servizi */
-.services-border {
-    border: 1px solid var(--B);
-}
-
-.service-card {
-    padding: 32px 28px;
-    border-right: 1px solid var(--B);
-}
-
-.service-card:last-child {
-    border-right: none;
-}
-
-.service-icon {
-    color: var(--M);
-    margin-bottom: 16px;
-}
-
-.service-icon svg {
-    width: 20px;
-    height: 20px;
-}
-
-.service-card h3 {
-    font-size: 15px;
-    font-weight: 600;
-    margin-bottom: 10px;
-}
-
-.service-card p {
-    font-size: 13px;
-    color: var(--TM);
-    font-weight: 300;
-    line-height: 1.65;
-}
-
-/* Card Statistiche */
-.stat-card {
-    padding: 28px 24px;
-    border: 1px solid var(--B);
-    background: var(--BG);
-}
-
-.stat-num {
-    font-family: 'Lora', serif;
-    font-size: 28px;
-    font-weight: 600;
-    color: var(--M);
-    margin-bottom: 6px;
-}
-
-.stat-label {
-    font-size: 13px;
-    font-weight: 500;
-    color: var(--T);
-    margin-bottom: 8px;
-}
-
-.stat-desc {
-    font-size: 13px;
-    color: var(--TM);
-    font-weight: 300;
-    line-height: 1.6;
-}
-
-/* Contatti Box */
-.contact-box {
-    border: 1px solid var(--B);
-}
-
-.contact-col {
-    padding: 40px 36px;
-}
-
-.contact-col h3 {
-    font-size: 16px;
-    font-weight: 600;
-    margin-bottom: 20px;
-}
-
-.contact-link {
-    display: flex;
-    align-items: flex-start;
-    gap: 12px;
-    padding: 16px 0;
-    border-bottom: 1px solid var(--B);
-    text-decoration: none;
-    color: var(--T);
-    transition: color .15s;
-}
-
-.contact-link.no-click {
-    cursor: default;
-}
-
-.contact-link.no-border {
-    border-bottom: none;
-}
-
-.contact-icon {
-    color: var(--M);
-    flex-shrink: 0;
-    margin-top: 2px;
-}
-
-.contact-icon svg {
-    width: 20px;
-    height: 20px;
-}
-
-.link-label {
-    font-size: 14px;
-    font-weight: 400;
-    color: var(--T);
-    text-decoration: underline;
-    text-underline-offset: 3px;
-    text-decoration-color: var(--B);
-    transition: text-decoration-color .15s, color .15s;
-}
-
-.contact-link:hover .link-label {
-    text-decoration-color: var(--M);
-    color: var(--M);
-}
-
-.sub-label {
-    font-size: 12px;
-    color: var(--TL);
-    font-weight: 300;
-    margin-top: 2px;
-}
-
-.qr-btn {
-    display: flex;
-    align-items: center;
-    gap: 5px;
-    background: none;
-    border: 1px solid var(--B);
-    border-radius: 3px;
-    padding: 5px 10px;
-    cursor: pointer;
-    color: var(--TM);
-    font-size: 11px;
-    font-family: 'DM Sans', sans-serif;
-    flex-shrink: 0;
-    transition: border-color .15s, color .15s;
-}
-
-.qr-btn:hover {
-    border-color: var(--M);
-    color: var(--M);
-}
-
-.patrocinio-box {
-    margin-top: 28px;
-    padding-top: 24px;
-    border-top: 1px solid var(--B);
-}
-
-.patrocinio-box p {
-    font-size: 12px;
-    color: var(--TL);
-    font-weight: 300;
-    line-height: 1.65;
-}
-
-/* Modal QR */
-.modal-overlay {
-    position: fixed;
-    inset: 0;
-    z-index: 200;
-    background: rgba(0,0,0,.55);
-    backdrop-filter: blur(4px);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.modal-body {
-    background: #fff;
-    border-radius: 6px;
-    padding: 36px 40px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 20px;
-    box-shadow: 0 24px 64px rgba(0,0,0,.18);
-    animation: qr-pop .22s cubic-bezier(0.34,1.56,0.64,1);
-}
-
-@keyframes qr-pop {
-    from { opacity:0; transform:scale(.88) }
-    to { opacity:1; transform:scale(1) }
-}
-
-.qr-img {
-    display: block;
-    image-rendering: crisp-edges;
-}
-
-.modal-title {
-    font-family: 'Lora', serif;
-    font-size: 15px;
-    font-weight: 600;
-    color: var(--T);
-    margin-bottom: 4px;
-}
-
-.modal-sub {
-    font-size: 12px;
-    color: var(--TL);
-    font-weight: 300;
-}
-
-.modal-link {
-    font-size: 13px;
-    color: var(--M);
-    font-weight: 500;
-    text-decoration: none;
-}
-
-.modal-close-btn {
-    margin-top: 4px;
-    background: none;
-    border: 1px solid var(--B);
-    border-radius: 3px;
-    padding: 8px 20px;
-    font-size: 12px;
-    color: var(--TM);
-    cursor: pointer;
-    font-family: 'DM Sans', sans-serif;
-}
-
-/* ─── FOOTER ───────────────────────────────────────────────────────────────── */
-footer {
-    background: #111;
-    padding: 56px 3rem 32px;
-}
-
-.footer-content {
-    max-width: 900px;
-    margin: 0 auto;
-}
-
-footer .grid-3 {
-    padding-bottom: 48px;
-    border-bottom: 1px solid #222;
-    margin-bottom: 28px;
-    gap: 48px;
-}
-
-.footer-logo {
-    font-family: 'Lora', serif;
-    font-size: 16px;
-    color: #e0e0e0;
-    margin-bottom: 12px;
-}
-
-.footer-info {
-    font-size: 14px;
-    color: #666;
-    line-height: 1.75;
-    font-weight: 300;
-}
-
-.footer-heading {
-    font-size: 10px;
-    font-weight: 500;
-    color: #444;
-    letter-spacing: 1.4px;
-    text-transform: uppercase;
-    margin-bottom: 16px;
-}
-
-.footer-links {
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-}
-
-.footer-links a, .footer-btn {
-    font-size: 13px;
-    color: #666;
-    text-decoration: none;
-    font-weight: 300;
-    background: none;
-    border: none;
-    cursor: pointer;
-    font-family: 'DM Sans', sans-serif;
-    text-align: left;
-    transition: color 0.15s;
-}
-
-.footer-links a:hover, .footer-btn:hover {
-    color: #fff;
-}
-
-.footer-bottom {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.copyright {
-    font-size: 11px;
-    color: #444;
-}
-
-.footer-social-icons {
-    display: flex;
-    gap: 18px;
-}
-
-.footer-social-icons a {
-    color: #555;
-    transition: color .15s;
-}
-
-.footer-social-icons a:hover {
-    color: #fff;
-}
-
-/* ─── ANIMAZIONI VELO & FADE IN ────────────────────────────────────────────── */
-#transition-veil {
-    position: fixed;
-    inset: 0;
-    z-index: 9999;
-    background: var(--M);
-    transform: scaleY(0);
-    transition: transform 0.46s cubic-bezier(0.76, 0, 0.24, 1);
-}
-
-#transition-veil.veil-cover {
-    transform: scaleY(1);
-}
-
-/* Fade in graduale all'Incrocio */
-.fade-in {
-    opacity: 0;
-    transform: translateY(18px);
-    transition: opacity .55s ease, transform .55s ease;
-}
-
-.fade-in.visible {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-/* Utility classes */
-.hidden { display: none !important; }
-.border-bottom { border-bottom: 1px solid var(--B); }
-.border-right { border-right: 1px solid var(--B); }
-.mt-16 { margin-top: 16px; }
-.mt-24 { margin-top: 24px; }
-.mt-40 { margin-top: 40px; }
-.mt-48 { margin-top: 48px; }
-.mt-56 { margin-top: 56px; }
-.mt-64 { margin-top: 64px; }
-.mb-16 { margin-bottom: 16px; }
-.text-center { text-align: center; }
-.font-300 { font-weight: 300; }
-.text-medium { color: var(--TM); }
-
-/* ─── RESPONSIVE (SOTTO 800PX) ──────────────────────────────────────────────── */
-@media (max-width: 800px) {
-    .nav-desktop { display: none !important; }
-    .nav-mobile-btn { display: flex !important; }
-    
-    nav { padding: 0 1.5rem; }
-    .container { padding: 0 1.5rem !important; }
-    section { padding: 64px 0 !important; }
-
-    .hero-grid { grid-template-columns: 1fr !important; gap: 40px; }
-    .hero-aside {
-        border-left: none !important;
-        border-top: 1px solid var(--B) !important;
-        padding-left: 0 !important;
-        padding-top: 32px !important;
+    <!DOCTYPE html>
+    <html lang="it">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="robots" content="index, follow">
+        <meta name="theme-color" content="#ae14a8">
+        
+        <title>Guerriere da Sempre</title>
+        <meta name="description" content="">
+        <link rel="canonical" href="">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+        
+    </head>
+    <style>
+        /* ─── VARIABILI E RESET ────────────────────────────────────────────────────── */
+    :root {
+        --M: #ae14a8;       /* Magenta Brand */
+        --B: #e0e0e0;       /* Border */
+        --BG: #f9f7f9;      /* Surface tinted */
+        --T: #1a1a1a;       /* Testo */
+        --TM: #555;         /* Testo medio */
+        --TL: #999;         /* Testo light */
     }
 
-    .grid-2 { grid-template-columns: 1fr !important; gap: 32px; }
-    .grid-3 { grid-template-columns: 1fr !important; }
-    
-    .services-border { border: none; }
-    .service-card {
-        padding: 32px 0;
-        border-right: none !important;
+    *, *::before, *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
+
+    html {
+        scroll-behavior: smooth;
+    }
+
+    body {
+        font-family: 'DM Sans', sans-serif;
+        color: var(--T);
+        background: #fff;
+        font-size: 15px;
+        line-height: 1.7;
+        overflow-x: hidden;
+        zoom: 130%;
+    }
+
+    h1, h2, h3, h4 {
+        font-family: 'Lora', serif;
+    }
+
+    /* ─── LAYOUT E STRUTTURA ───────────────────────────────────────────────────── */
+    .container {
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 0 3rem;
+    }
+
+    section {
+        padding: 88px 0;
         border-bottom: 1px solid var(--B);
     }
-    .service-card:last-child { border-bottom: none; }
+
+    .section-tinted { background-color: var(--BG); }
+    .section-white { background-color: #fff; }
+
+    .grid-2 {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 64px;
+    }
+
+    .grid-3 {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .gap-32 { gap: 32px; }
+    .items-start { align-items: start; }
+    .items-center { align-items: center; }
+
+    /* ─── NAVIGAZIONE ──────────────────────────────────────────────────────────── */
+    nav {
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        background: #fff;
+        border-bottom: 1px solid var(--B);
+        padding: 0 3rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        height: 62px;
+        transition: box-shadow .2s;
+    }
+
+    nav.scrolled {
+        box-shadow: 0 1px 8px rgba(0,0,0,.05);
+    }
+
+    .nav-logo {
+        font-family: 'Lora', serif;
+        font-size: 16px;
+        font-weight: 600;
+        color: var(--T);
+        background: none;
+        border: none;
+        cursor: pointer;
+        letter-spacing: .1px;
+        display: flex;
+        align-items: center;
+        max-width: 100px; 
+        height: auto;
+    }
     
-    .contact-col { padding: 36px 0; }
-    .contact-box { border: none; }
-    .border-right { border-right: none !important; border-bottom: 1px solid var(--B); }
+    .nav-logo picture,
+    .nav-logo img {
+        display: block;
+        width: 100%;
+        height: auto;
+    }
 
-    footer .grid-3 { grid-template-columns: 1fr !important; gap: 32px; }
-    .footer-bottom { flex-direction: column; gap: 16px; text-align: center; }
-}
-</style>
-<body>
+    .brand-accent { color: var(--M); font-style: normal; }
+    .brand-accent-light { color: #c96dc5; font-style: normal; }
 
-    <div id="transition-veil" class="veil-idle"></div>
+    .nav-desktop {
+        list-style: none;
+        display: flex;
+        align-items: center;
+        gap: 0;
+    }
 
-    <nav aria-label="Navigazione principale" id="main-nav">
-        <button class="nav-logo" data-page="home">
-            Guerriere <em class="brand-accent">da Sempre</em>
-        </button>
+    .nav-link {
+        font-size: 13px;
+        font-weight: 400;
+        color: var(--TM);
+        text-decoration: none;
+        padding: 6px 16px;
+        cursor: pointer;
+        background: none;
+        border: none;
+        font-family: 'DM Sans', sans-serif;
+        transition: color .15s;
+    }
 
-        <ul class="nav-desktop">
-            <li><button class="nav-link active" data-page="home">Chi siamo</button></li>
-            <li><button class="nav-link" data-page="progetto">Il progetto</button></li>
-            <li><button class="nav-link" data-page="contatti">Contatti</button></li>
-        </ul>
+    .nav-link.active, .nav-link:hover {
+        color: var(--M);
+    }
 
-        <button class="nav-mobile-btn" aria-label="Apri menu" id="hamburger-btn">
-            <svg class="icon-menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
-            <svg class="icon-x hidden" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
-        </button>
-    </nav>
+    .nav-mobile-btn {
+        display: none;
+        background: none;
+        border: none;
+        cursor: pointer;
+        color: var(--T);
+    }
 
-    <div id="mobile-drawer" class="hidden">
-        <button class="nav-link" data-page="home">Chi siamo</button>
-        <button class="nav-link" data-page="progetto">Il progetto</button>
-        <button class="nav-link" data-page="contatti">Contatti</button>
-    </div>
+    .nav-mobile-btn svg {
+        width: 20px;
+        height: 20px;
+    }
 
-    <main>
+    #mobile-drawer {
+        position: fixed;
+        top: 62px;
+        left: 0;
+        right: 0;
+        background: #fff;
+        border-bottom: 1px solid var(--B);
+        z-index: 99;
+        padding: 1rem 1.5rem;
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+    }
+
+    /* ─── COMPONENTI UI BASE ────────────────────────────────────────────────────── */
+    .eyebrow {
+        font-size: 11px;
+        font-weight: 500;
+        letter-spacing: 1.6px;
+        text-transform: uppercase;
+        color: var(--M);
+        margin-bottom: 16px;
+    }
+
+    .divider {
+        width: 32px;
+        height: 2px;
+        background: var(--M);
+        margin-bottom: 32px;
+    }
+
+    .btn {
+        display: inline-block;
+        text-decoration: none;
+        font-family: 'DM Sans', sans-serif;
+        font-size: 13px;
+        font-weight: 500;
+        border-radius: 3px;
+        padding: 11px 24px;
+        cursor: pointer;
+        border: none;
+        transition: opacity .15s, border-color .15s;
+    }
+
+    .btn-primary {
+        background: var(--M);
+        color: #fff;
+    }
+
+    .btn-outline {
+        background: transparent;
+        color: var(--T);
+        border: 1px solid #ccc;
+    }
+
+    .btn:hover {
+        opacity: 0.85;
+    }
+
+    /* ─── INTERFACCIA DELLE PAGINE ─────────────────────────────────────────────── */
+    .page-content {
+        display: none;
+    }
+    .page-content.active {
+        display: block;
+    }
+
+    /* Hero */
+    .section-hero {
+        padding: 96px 0 88px;
+        border-bottom: 1px solid var(--B);
+    }
+
+    .hero-grid {
+        display: grid;
+        grid-template-columns: 1fr 340px;
+        gap: 80px;
+        align-items: center;
+    }
+
+    .hero-title {
+        font-size: 40px;
+        font-weight: 600;
+        line-height: 1.25;
+        margin-bottom: 20px;
+        color: var(--T);
+    }
+
+    .text-italic { color: var(--M); font-style: italic; }
+
+    .hero-lead {
+        font-size: 16px;
+        color: var(--TM);
+        font-weight: 300;
+        line-height: 1.8;
+        max-width: 560px;
+    }
+
+    .btn-group {
+        display: flex;
+        gap: 10px;
+        margin-top: 36px;
+    }
+
+    .hero-aside {
+        border-left: 1px solid var(--B);
+        padding-left: 48px;
+    }
+
+    .aside-eyebrow {
+        font-size: 11px;
+        letter-spacing: 1.4px;
+        text-transform: uppercase;
+        color: var(--TL);
+        margin-bottom: 20px;
+    }
+
+    .founder-card {
+        padding: 18px 0;
+    }
+
+    .founder-card h4 {
+        font-size: 15px;
+        font-weight: 600;
+        margin-bottom: 4px;
+    }
+
+    .founder-card p {
+        font-size: 13px;
+        color: var(--TM);
+        font-weight: 300;
+        line-height: 1.5;
+    }
+
+    /* Chi Siamo Extra */
+    .quote-card {
+        margin-top: 40px;
+        padding: 24px 28px;
+        border-left: 3px solid var(--M);
+        background: var(--BG);
+    }
+
+    .quote-text {
+        font-family: 'Lora', serif;
+        font-size: 16px;
+        font-style: italic;
+        color: var(--T);
+        line-height: 1.7;
+    }
+
+    /* Testimonianze */
+    .testimonial-box {
+        padding: 48px 56px;
+        border: 1px solid var(--B);
+        background-color: #fff;
+    }
+
+    .testimonial-box blockquote {
+        font-family: 'Lora', serif;
+        font-size: 20px;
+        font-style: italic;
+        color: var(--T);
+        line-height: 1.65;
+        margin-bottom: 24px;
+    }
+
+    .testimonial-box cite {
+        font-size: 13px;
+        color: var(--TL);
+        font-style: normal;
+    }
+
+    .testimonial-box cite strong {
+        color: var(--TM);
+        font-weight: 500;
+        font-size: 14px;
+        display: block;
+        margin-bottom: 2px;
+    }
+
+    /* Steps Box */
+    .steps-box {
+        border: 1px solid var(--B);
+        border-radius: 2px;
+        background: #fff;
+    }
+
+    .step-row {
+        display: flex;
+        gap: 20px;
+        align-items: flex-start;
+        padding: 24px;
+        border-bottom: 1px solid var(--B);
+    }
+
+    .step-row:last-child {
+        border-bottom: none;
+    }
+
+    .step-num {
+        font-family: 'Lora', serif;
+        font-size: 13px;
+        font-weight: 600;
+        color: var(--M);
+        min-width: 20px;
+        margin-top: 2px;
+    }
+
+    .step-row h4 {
+        font-size: 14px;
+        font-weight: 600;
+        margin-bottom: 4px;
+    }
+
+    .step-row p {
+        font-size: 13px;
+        color: var(--TM);
+        font-weight: 300;
+        line-height: 1.6;
+    }
+
+    /* Servizi */
+    .services-border {
+        border: 1px solid var(--B);
+    }
+
+    .service-card {
+        padding: 32px 28px;
+        border-right: 1px solid var(--B);
+    }
+
+    .service-card:last-child {
+        border-right: none;
+    }
+
+    .service-icon {
+        color: var(--M);
+        margin-bottom: 16px;
+    }
+
+    .service-icon svg {
+        width: 20px;
+        height: 20px;
+    }
+
+    .service-card h3 {
+        font-size: 15px;
+        font-weight: 600;
+        margin-bottom: 10px;
+    }
+
+    .service-card p {
+        font-size: 13px;
+        color: var(--TM);
+        font-weight: 300;
+        line-height: 1.65;
+    }
+
+    /* Card Statistiche */
+    .stat-card {
+        padding: 28px 24px;
+        border: 1px solid var(--B);
+        background: var(--BG);
+    }
+
+    .stat-num {
+        font-family: 'Lora', serif;
+        font-size: 28px;
+        font-weight: 600;
+        color: var(--M);
+        margin-bottom: 6px;
+    }
+
+    .stat-label {
+        font-size: 13px;
+        font-weight: 500;
+        color: var(--T);
+        margin-bottom: 8px;
+    }
+
+    .stat-desc {
+        font-size: 13px;
+        color: var(--TM);
+        font-weight: 300;
+        line-height: 1.6;
+    }
+
+    /* Contatti Box */
+    .contact-box {
+        border: 1px solid var(--B);
+    }
+
+    .contact-col {
+        padding: 40px 36px;
+    }
+
+    .contact-col h3 {
+        font-size: 16px;
+        font-weight: 600;
+        margin-bottom: 20px;
+    }
+
+    .contact-link {
+        display: flex;
+        align-items: flex-start;
+        gap: 12px;
+        padding: 16px 0;
+        border-bottom: 1px solid var(--B);
+        text-decoration: none;
+        color: var(--T);
+        transition: color .15s;
+    }
+
+    .contact-link.no-click {
+        cursor: default;
+    }
+
+    .contact-link.no-border {
+        border-bottom: none;
+    }
+
+    .contact-icon {
+        color: var(--M);
+        flex-shrink: 0;
+        margin-top: 2px;
+    }
+
+    .contact-icon svg {
+        width: 20px;
+        height: 20px;
+    }
+
+    .link-label {
+        font-size: 14px;
+        font-weight: 400;
+        color: var(--T);
+        text-decoration: underline;
+        text-underline-offset: 3px;
+        text-decoration-color: var(--B);
+        transition: text-decoration-color .15s, color .15s;
+    }
+
+    .contact-link:hover .link-label {
+        text-decoration-color: var(--M);
+        color: var(--M);
+    }
+
+    .sub-label {
+        font-size: 12px;
+        color: var(--TL);
+        font-weight: 300;
+        margin-top: 2px;
+    }
+
+    .qr-btn {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        background: none;
+        border: 1px solid var(--B);
+        border-radius: 3px;
+        padding: 5px 10px;
+        cursor: pointer;
+        color: var(--TM);
+        font-size: 11px;
+        font-family: 'DM Sans', sans-serif;
+        flex-shrink: 0;
+        transition: border-color .15s, color .15s;
+    }
+
+    .qr-btn:hover {
+        border-color: var(--M);
+        color: var(--M);
+    }
+
+    .patrocinio-box {
+        margin-top: 28px;
+        padding-top: 24px;
+        border-top: 1px solid var(--B);
+    }
+
+    .patrocinio-box p {
+        font-size: 12px;
+        color: var(--TL);
+        font-weight: 300;
+        line-height: 1.65;
+    }
+
+    /* Modal QR */
+    .modal-overlay {
+        position: fixed;
+        inset: 0;
+        z-index: 200;
+        background: rgba(0,0,0,.55);
+        backdrop-filter: blur(4px);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .modal-body {
+        background: #fff;
+        border-radius: 6px;
+        padding: 36px 40px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+        box-shadow: 0 24px 64px rgba(0,0,0,.18);
+        animation: qr-pop .22s cubic-bezier(0.34,1.56,0.64,1);
+    }
+
+    @keyframes qr-pop {
+        from { opacity:0; transform:scale(.88) }
+        to { opacity:1; transform:scale(1) }
+    }
+
+    .qr-img {
+        display: block;
+        image-rendering: crisp-edges;
+    }
+
+    .modal-title {
+        font-family: 'Lora', serif;
+        font-size: 15px;
+        font-weight: 600;
+        color: var(--T);
+        margin-bottom: 4px;
+    }
+
+    .modal-sub {
+        font-size: 12px;
+        color: var(--TL);
+        font-weight: 300;
+    }
+
+    .modal-link {
+        font-size: 13px;
+        color: var(--M);
+        font-weight: 500;
+        text-decoration: none;
+    }
+
+    .modal-close-btn {
+        margin-top: 4px;
+        background: none;
+        border: 1px solid var(--B);
+        border-radius: 3px;
+        padding: 8px 20px;
+        font-size: 12px;
+        color: var(--TM);
+        cursor: pointer;
+        font-family: 'DM Sans', sans-serif;
+    }
+
+    /* ─── FOOTER ───────────────────────────────────────────────────────────────── */
+    footer {
+        background: #111;
+        padding: 56px 3rem 32px;
+    }
+
+    .footer-content {
+        max-width: 900px;
+        margin: 0 auto;
+    }
+
+    footer .grid-3 {
+        padding-bottom: 48px;
+        border-bottom: 1px solid #222;
+        margin-bottom: 28px;
+        gap: 48px;
+    }
+
+    .footer-logo {
+        font-family: 'Lora', serif;
+        font-size: 16px;
+        color: #e0e0e0;
+        margin-bottom: 12px;
+    }
+
+    .footer-info {
+        font-size: 14px;
+        color: #666;
+        line-height: 1.75;
+        font-weight: 300;
+    }
+
+    .footer-heading {
+        font-size: 10px;
+        font-weight: 500;
+        color: #444;
+        letter-spacing: 1.4px;
+        text-transform: uppercase;
+        margin-bottom: 16px;
+    }
+
+    .footer-links {
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .footer-links a, .footer-btn {
+        font-size: 13px;
+        color: #666;
+        text-decoration: none;
+        font-weight: 300;
+        background: none;
+        border: none;
+        cursor: pointer;
+        font-family: 'DM Sans', sans-serif;
+        text-align: left;
+        transition: color 0.15s;
+    }
+
+    .footer-links a:hover, .footer-btn:hover {
+        color: #fff;
+    }
+
+    .footer-bottom {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .copyright {
+        font-size: 11px;
+        color: #444;
+    }
+
+    .footer-social-icons {
+        display: flex;
+        gap: 18px;
+    }
+
+    .footer-social-icons a {
+        color: #555;
+        transition: color .15s;
+    }
+
+    .footer-social-icons a:hover {
+        color: #fff;
+    }
+
+    /* ─── ANIMAZIONI VELO & FADE IN ────────────────────────────────────────────── */
+    #transition-veil {
+        position: fixed;
+        inset: 0;
+        z-index: 9999;
+        background: var(--M);
+        transform: scaleY(0);
+        transition: transform 0.46s cubic-bezier(0.76, 0, 0.24, 1);
+    }
+
+    #transition-veil.veil-cover {
+        transform: scaleY(1);
+    }
+
+    /* Fade in graduale all'Incrocio */
+    .fade-in {
+        opacity: 0;
+        transform: translateY(18px);
+        transition: opacity .55s ease, transform .55s ease;
+    }
+
+    .fade-in.visible {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    /* Utility classes */
+    .hidden { display: none !important; }
+    .border-bottom { border-bottom: 1px solid var(--B); }
+    .border-right { border-right: 1px solid var(--B); }
+    .mt-16 { margin-top: 16px; }
+    .mt-24 { margin-top: 24px; }
+    .mt-40 { margin-top: 40px; }
+    .mt-48 { margin-top: 48px; }
+    .mt-56 { margin-top: 56px; }
+    .mt-64 { margin-top: 64px; }
+    .mb-16 { margin-bottom: 16px; }
+    .text-center { text-align: center; }
+    .font-300 { font-weight: 300; }
+    .text-medium { color: var(--TM); }
+
+    /* ─── RESPONSIVE (SOTTO 800PX) ──────────────────────────────────────────────── */
+    @media (max-width: 800px) {
+        .nav-desktop { display: none !important; }
+        .nav-mobile-btn { display: flex !important; }
         
-        <div id="page-home" class="page-content active">
-            <section class="section-hero">
-                <div class="container hero-grid">
-                    <div class="fade-in">
-                        <p class="eyebrow">Gessate (MI) · Dal 2023</p>
-                        <h1 class="hero-title">
-                            Nessuna guerriera<br>combatte <em class="text-italic">da sola</em>.
-                        </h1>
-                        <p class="hero-lead">
-                            Siamo Elena e Serena. Abbiamo attraversato il tumore e da quell'esperienza è nata un'idea semplice: essere lì, per ogni donna del territorio che affronta la stessa strada.
-                        </p>
-                        <div class="btn-group">
-                            <button class="btn btn-primary" data-page="progetto">Scopri il Passa Parrucca</button>
-                            <button class="btn btn-outline" data-page="contatti">Scrivici</button>
-                        </div>
-                    </div>
-                    <aside class="hero-aside fade-in">
-                        <p class="aside-eyebrow">Le fondatrici</p>
-                        <div class="founder-card border-bottom">
-                            <h4>Elena</h4>
-                            <p>Ha superato a testa alta una delle sfide più difficili della vita e ha scelto di trasformare quel percorso in un punto di riferimento e di sostegno per le donne della Martesana.    </p>
-                        </div>
-                        <div class="founder-card">
-                            <h4>Serena</h4>
-                            <p>Accanto a Elena fin dall'inizio. Insieme condividono ogni appuntamento, ogni consulenza, ogni messaggio che arriva.</p>
-                        </div>
-                    </aside>
-                </div>
-            </section>
+        nav { padding: 0 1.5rem; }
+        .container { padding: 0 1.5rem !important; }
+        section { padding: 64px 0 !important; }
 
-            <section class="section-white">
-                <div class="container">
-                    <div class="fade-in">
-                        <p class="eyebrow">Chi siamo</p>
-                        <h2>Due amiche, una scelta.</h2>
-                        <div class="divider"></div>
-                    </div>
-                    <div class="grid-2">
-                        <div class="fade-in">
-                            <p>Guerriere da Sempre nasce a Gessate nel 2023 dall'amicizia tra Elena e Serena. Entrambe hanno vissuto sulla propria pelle l'esperienza di un tumore e sanno cosa vuol dire svegliarsi al mattino e non riconoscersi allo specchio. Sanno cosa vuol dire avere paura e non trovare le parole giuste per dirlo.</p>
-                            <p class="mt-16">Da quella consapevolezza è nata un'idea: non aspettare che qualcuno costruisse il supporto che mancava, ma crearlo loro stesse. Con il patrocinio del Comune di Gessate, il progetto ha trovato casa sul territorio e continua a crescere grazie alla rete di donne che lo abitano.</p>
-                        </div>
-                        <div class="fade-in">
-                            <p>Non siamo un ambulatorio né uno sportello burocratico. Siamo due persone che rispondono al telefono, che vengono a prendere un caffè se serve, che aiutano a scegliere una parrucca con la stessa cura con cui si farebbe con una sorella.</p>
-                            <p class="mt-16">Il nome lo dice già tutto: guerriere lo si è sempre state, molto prima della diagnosi. Noi ci siamo solo ricordate di esserlo - e vogliamo che lo faccia anche tu.</p>
-                            <div class="quote-card">
-                                <p class="quote-text">"Guerriere lo si è sempre state, molto prima della diagnosi."</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <section class="section-tinted">
-                <div class="container">
-                    <div class="fade-in">
-                        <p class="eyebrow">Una voce dalla comunità</p>
-                        <h2>Chi ci ha già incontrato.</h2>
-                        <div class="divider"></div>
-                    </div>
-                    <div class="fade-in mt-48">
-                        <div class="testimonial-box">
-                            <blockquote>
-                                "TESTIMONIANZA"
-                            </blockquote>
-                            <cite>
-                                <strong>Una guerriera della Martesana</strong>
-                                Gessate, 2024
-                            </cite>
-                        </div>
-                    </div>
-                    <div class="text-center mt-40 fade-in">
-                        <p class="mb-16 font-300 text-medium">Hai una storia da raccontare? Scrivici: ogni voce aiuta un'altra donna a trovare la strada.</p>
-                        <button class="btn btn-outline" data-page="contatti">Racconta la tua storia</button>
-                    </div>
-                </div>
-            </section>
-        </div>
-
-        <div id="page-progetto" class="page-content">
-            <section class="section-tinted">
-                <div class="container">
-                    <div class="fade-in">
-                        <p class="eyebrow">Il nostro servizio principale</p>
-                        <h1>Passa Parrucca</h1>
-                        <div class="divider"></div>
-                    </div>
-                    <div class="grid-2 items-start mt-56">
-                        <div class="fade-in">
-                            <p>Perdere i capelli durante la chemioterapia non è un dettaglio. È una delle cose che più pesano, perché tocca l'immagine di sé ogni volta che ti guardi. Per questo abbiamo costruito una piccola biblioteca di parrucche - donate da donne che hanno finito le cure - che mettiamo a disposizione gratuitamente di chi ne ha bisogno.</p>
-                            <p class="mt-16">Il servizio è completamente gratuito e dura per tutto il tempo delle cure. Quando i capelli tornano, la parrucca viene restituita, igienizzata con cura professionale e rimessa a disposizione della prossima guerriera.</p>
-                            <div class="mt-24">
-                                <button class="btn btn-primary" data-page="contatti">Prenota una consulenza</button>
-                            </div>
-                        </div>
-                        <div class="fade-in steps-box">
-                            <div class="step-row">
-                                <span class="step-num">01</span>
-                                <div>
-                                    <h4>Scrivici o chiamaci</h4>
-                                    <p>Contattaci via Instagram, Facebook o WhatsApp. Rispondiamo noi direttamente, senza call center né moduli da compilare.</p>
-                                </div>
-                            </div>
-                            <div class="step-row">
-                                <span class="step-num">02</span>
-                                <div>
-                                    <h4>Consulenza riservata a Gessate</h4>
-                                    <p>Ci vediamo in uno spazio intimo e privato. Ti mostriamo i modelli disponibili e ti aiutiamo a scegliere quello più adatto a te, con calma.</p>
-                                </div>
-                            </div>
-                            <div class="step-row">
-                                <span class="step-num">03</span>
-                                <div>
-                                    <h4>La tieni per tutto il tempo che ti serve</h4>
-                                    <p>Non ci sono scadenze né burocrazia. La parrucca rimane tua fino a quando i capelli non ricrescono da soli.</p>
-                                </div>
-                            </div>
-                            <div class="step-row">
-                                <span class="step-num">04</span>
-                                <div>
-                                    <h4>La restituisci, la catena continua</h4>
-                                    <p>Una volta finita, la parrucca torna a noi, viene igienizzata e donata alla prossima donna che ne ha bisogno.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <section class="section-white">
-                <div class="container">
-                    <div class="fade-in">
-                        <p class="eyebrow">Come ti supportiamo</p>
-                        <h2>Molto più di una parrucca.</h2>
-                        <div class="divider"></div>
-                    </div>
-                    <div class="grid-3 services-border mt-56">
-                        <div class="service-card fade-in">
-                            <div class="service-icon">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l1.5 4.5L18 9l-4.5 1.5L12 15l-1.5-4.5L6 9l4.5-1.5z"/><path d="M19 13l.75 2.25L22 16l-2.25.75L19 19l-.75-2.25L16 16l2.25-.75z"/></svg>
-                            </div>
-                            <h3>Estetica oncologica</h3>
-                            <p>Consigli pratici su come gestire la perdita di ciglia e sopracciglia, e sessioni di make-up curativo per aiutarti a riconoscerti allo specchio durante le cure.</p>
-                        </div>
-                        <div class="service-card fade-in">
-                            <div class="service-icon">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
-                            </div>
-                            <h3>Ascolto tra pari</h3>
-                            <p>Non è una terapia clinica: è la voce di chi ci è già passata. Condividiamo paure, dubbi e piccoli traguardi quotidiani - da amica ad amica.</p>
-                        </div>
-                        <div class="service-card fade-in">
-                            <div class="service-icon">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="13" cy="4" r="1"/><path d="M7 21l2-8 2 3 3-5 2 10"/><path d="M7 11l2-3 4 1 2-4"/></svg>
-                            </div>
-                            <h3>Gruppi di Cammino ed eventi</h3>
-                            <p>Camminate solidali a Gessate, banchetti informativi e serate di sensibilizzazione per la prevenzione oncologica sul territorio della Martesana.</p>
-                        </div>
-                    </div>
-
-                    <div class="grid-2 gap-32 mt-64">
-                        <div class="stat-card fade-in">
-                            <p class="stat-num">2023</p>
-                            <p class="stat-label">Anno di fondazione</p>
-                            <p class="stat-desc">Nate dall'esperienza diretta, non da un piano aziendale.</p>
-                        </div>
-                        <div class="stat-card fade-in">
-                            <p class="stat-num">100%</p>
-                            <p class="stat-label">Servizio gratuito</p>
-                            <p class="stat-desc">Il Passa Parrucca non ha costi. Mai. Per nessuna.</p>
-                        </div>
-                        <div class="stat-card fade-in">
-                            <p class="stat-num">Gessate</p>
-                            <p class="stat-label">Radicamento locale</p>
-                            <p class="stat-desc">Patrocinio del Comune, spaces comunali, presenza reale sul territorio.</p>
-                        </div>
-                        <div class="stat-card fade-in">
-                            <p class="stat-num">Sempre</p>
-                            <p class="stat-label">Risposta personale</p>
-                            <p class="stat-desc">Non un chatbot, non un form. Elena o Serena.</p>
-                        </div>
-                    </div>
-                </div>
-            </section>
-        </div>
-
-        <div id="page-contatti" class="page-content">
-            <section class="section-white">
-                <div class="container">
-                    <div class="fade-in">
-                        <p class="eyebrow">Contatti</p>
-                        <h1>Scrivici. Ci siamo noi.</h1>
-                        <div class="divider"></div>
-                        <p class="hero-lead">Non c'è né centralino, né form da compilare. Ci siamo noi a risponderti.</p>
-                    </div>
-
-                    <div class="grid-2 contact-box mt-56">
-                        <div class="contact-col border-right fade-in">
-                            <h3>Dove siamo</h3>
-                            
-                            <a href="https://maps.google.com/?q=Gessate" target="_blank" rel="noopener noreferrer" class="contact-link">
-                                <span class="contact-icon">
-                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-                                </span>
-                                <div>
-                                    <p class="link-label">Gessate (MI)</p>
-                                    <p class="sub-label">Spazi comunali - su appuntamento</p>
-                                </div>
-                            </a>
-
-                            <div class="contact-link no-click">
-                                <span class="contact-icon">
-                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-                                </span>
-                                <div>
-                                    <p class="link-label" style="text-decoration:none;">Risposta entro poche ore</p>
-                                    <p class="sub-label">Siamo volontarie. Nessuna richiesta resta senza risposta.</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="contact-col fade-in">
-                            <h3>Scrivici sui social</h3>
-
-                            <a href="https://www.instagram.com/guerrieredasempre/" target="_blank" rel="noopener noreferrer" class="contact-link items-center">
-                                <span class="contact-icon">
-                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
-                                </span>
-                                <div style="flex: 1;">
-                                    <p class="link-label">@guerrieredasempre</p>
-                                    <p class="sub-label">Instagram · messaggio diretto</p>
-                                </div>
-                                <button id="open-qr-btn" class="qr-btn" title="Mostra QR code">
-                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:14px;height:14px;"><rect x="3" y="3" width="5" height="5" rx=".5"/><rect x="16" y="3" width="5" height="5" rx=".5"/><rect x="3" y="16" width="5" height="5" rx=".5"/><rect x="5" y="5" width="1" height="1"/><rect x="18" y="5" width="1" height="1"/><rect x="5" y="18" width="1" height="1"/><path d="M16 16h2v2h-2zM20 16h1v1h-1zM16 20h1v1h-1zM18 18h3v3h-3z"/><path d="M10 3v3M10 8v1M3 10h3M8 10h1M10 13v3M13 3h1M13 8h1M13 13h1M13 18h1"/></svg>
-                                    QR
-                                </button>
-                            </a>
-
-                            <a href="https://www.facebook.com/guerrieredasempre" target="_blank" rel="noopener noreferrer" class="contact-link no-border">
-                                <span class="contact-icon">
-                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
-                                </span>
-                                <div>
-                                    <p class="link-label">Guerriere da Sempre</p>
-                                    <p class="sub-label">Facebook · pagina ufficiale</p>
-                                </div>
-                            </a>
-
-                            <div class="patrocinio-box">
-                                <p>Il Comune di Gessate patrocina il progetto e mette a disposizione gli spazi per le consulenze e gli eventi sul territorio.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-        </div>
-
-    </main>
-
-    <div id="qr-modal" class="modal-overlay hidden">
-        <div class="modal-body">
-            <img src="assets/ig_qr.webp" alt="QR code Instagram @guerrieredasempre" width="500" height="574" class="qr-img">
-            
-            
-            <button id="close-qr-btn" class="modal-close-btn">Chiudi</button>
-        </div>
-    </div>
-
-    <footer>
-        <div class="container footer-content">
-            <div class="grid-3 no-border-m">
-                <div>
-                    <div class="footer-logo">
-                        Guerriere <em class="brand-accent-light">da Sempre</em>
-                    </div>
-                    <p class="footer-info">
-                        Progetto di volontariato fondato da Elena e Serena.<br>
-                        <address style="font-style: normal; display: inline;color: #666;font-size: 14px;">Gessate (MI) · Con il patrocinio del Comune di Gessate.</address><br>
-                        Attive dal 2023.
-                    </p>
-                </div>
-                <div>
-                    <h5 class="footer-heading">Il progetto</h5>
-                    <ul class="footer-links">
-                        <li><button class="footer-btn" data-page="home">Chi siamo</button></li>
-                        <li><button class="footer-btn" data-page="progetto">Il progetto</button></li>
-                        <li><button class="footer-btn" data-page="contatti">Contatti</button></li>
-                    </ul>
-                </div>
-                <div>
-                    <h5 class="footer-heading">Seguici</h5>
-                    <ul class="footer-links">
-                        <li><a href="https://www.instagram.com/guerrieredasempre/" target="_blank" rel="noopener">Instagram</a></li>
-                        <li><a href="https://www.facebook.com/guerrieredasempre" target="_blank" rel="noopener">Facebook</a></li>
-                    </ul>
-                </div>
-            </div>
-            
-            <div class="footer-bottom">
-                <p class="copyright">© 2025 Guerriere da Sempre · Gessate (MI)</p>
-                <div class="footer-social-icons">
-                    <a href="https://www.instagram.com/guerrieredasempre/" target="_blank" rel="noopener noreferrer">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:20px;height:20px;"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
-                    </a>
-                    <a href="https://www.facebook.com/guerrieredasempre" target="_blank" rel="noopener noreferrer">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:20px;height:20px;"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </footer>
-
-    <script>
-        // ─── DATI SEO E STRUTTURATI ──────────────────────────────────────────────────
-const SEO_DATA = {
-    home: {
-        title: "Guerriere da Sempre | Supporto oncologico a Gessate (MI)",
-        description: "Progetto di volontariato fondato da Elena e Serena a Gessate (MI). Offriamo il Passa Parrucca gratuito, ascolto tra pari ed estetica oncologica per donne in cura. Con il patrocinio del Comune di Gessate.",
-        canonical: "https://www.guerrieredasempre.it/",
-    },
-    progetto: {
-        title: "Il Progetto – Passa Parrucca e Servizi | Guerriere da Sempre",
-        description: "Scopri il Passa Parrucca: parrucche gratuite per donne in chemioterapia a Gessate e nella Martesana. Inoltre estetica oncologica, ascolto tra pari e gruppi di cammino.",
-        canonical: "https://www.guerrieredasempre.it/progetto/",
-    },
-    contatti: {
-        title: "Contatti | Guerriere da Sempre – Gessate (MI)",
-        description: "Scrivici su Instagram o Facebook. Guerriere da Sempre risponde direttamente, senza centralino. Consulenze a Gessate (MI) su appuntamento, con il patrocinio del Comune.",
-        canonical: "https://www.guerrieredasempre.it/contatti/",
-    }
-};
-
-const JSON_LD = {
-    "@context": "https://schema.org",
-    "@graph": [{
-        "@type": ["Organization", "LocalBusiness"],
-        "@id": "https://www.guerrieredasempre.it/#org",
-        "name": "Guerriere da Sempre",
-        "description": "Progetto di volontariato oncologico fondato da Elena e Serena a Gessate (MI). Offre il Passa Parrucca gratuito, ascolto tra pari ed estetica oncologica.",
-        "url": "https://www.guerrieredasempre.it",
-        "foundingDate": "2023",
-        "areaServed": { "@type": "AdministrativeArea", "name": "Martesana, Gessate (MI)" },
-        "address": { "@type": "PostalAddress", "addressLocality": "Gessate", "addressRegion": "MI", "addressCountry": "IT" },
-        "sameAs": ["https://www.instagram.com/guerrieredasempre/", "https://www.facebook.com/guerrieredasempre"],
-        "founder": [{ "@type": "Person", "name": "Elena" }, { "@type": "Person", "name": "Serena" }],
-        "knowsAbout": ["supporto oncologico", "chemioterapia", "parrucche oncologiche", "estetica oncologica", "volontariato sanitario"],
-        "hasOfferCatalog": {
-            "@type": "OfferCatalog",
-            "name": "Servizi gratuiti per donne in cura",
-            "itemListElement": [
-                { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Passa Parrucca", "description": "Prestito gratuito di parrucche per donne in chemioterapia, senza burocrazia né scadenze." }, "price": "0", "priceCurrency": "EUR" },
-                { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Estetica oncologica", "description": "Consigli e sessioni di make-up curativo durante le cure oncologiche." }, "price": "0", "priceCurrency": "EUR" },
-                { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Ascolto tra pari", "description": "Supporto emotivo da parte di chi ha vissuto l'esperienza del tumore in prima persona." }, "price": "0", "priceCurrency": "EUR" }
-            ]
+        .hero-grid { grid-template-columns: 1fr !important; gap: 40px; }
+        .hero-aside {
+            border-left: none !important;
+            border-top: 1px solid var(--B) !important;
+            padding-left: 0 !important;
+            padding-top: 32px !important;
         }
-    }]
-};
 
-// ─── ROUTER & MOTORE SEO DYNAMIC ─────────────────────────────────────────────
-let currentPage = "home";
-let isTransitioning = false;
+        .grid-2 { grid-template-columns: 1fr !important; gap: 32px; }
+        .grid-3 { grid-template-columns: 1fr !important; }
+        
+        .services-border { border: none; }
+        .service-card {
+            padding: 32px 0;
+            border-right: none !important;
+            border-bottom: 1px solid var(--B);
+        }
+        .service-card:last-child { border-bottom: none; }
+        
+        .contact-col { padding: 36px 0; }
+        .contact-box { border: none; }
+        .border-right { border-right: none !important; border-bottom: 1px solid var(--B); }
 
-function updateSEO(page) {
-    const data = SEO_DATA[page];
-    if (!data) return;
+        footer .grid-3 { grid-template-columns: 1fr !important; gap: 32px; }
+        .footer-bottom { flex-direction: column; gap: 16px; text-align: center; }
+    }
+    </style>
+    <body>
 
-    // Head primario
-    document.title = data.title;
-    document.documentElement.lang = "it";
+        <div id="transition-veil" class="veil-idle"></div>
 
-    let metaDesc = document.querySelector('meta[name="description"]');
-    if (!metaDesc) { metaDesc = document.createElement("meta"); metaDesc.name = "description"; document.head.appendChild(metaDesc); }
-    metaDesc.content = data.description;
+        <nav aria-label="Navigazione principale" id="main-nav">
+            <button class="nav-logo" data-page="home" aria-label="Torna alla Home">
+                <picture>
+                    <source srcset="assets/logo-300.webp 2x, assets/logo-100.webp 1x">
+                    <img src="assets/logo-100.webp" 
+                        alt="Guerriere Da Sempre" 
+                        width="233" 
+                        height="100" 
+                        style="width: 100%; height: auto; max-width: 100px;">
+                </picture>
+            </button>
 
-    let canonical = document.querySelector('link[rel="canonical"]');
-    if (!canonical) { canonical = document.createElement("link"); canonical.rel = "canonical"; document.head.appendChild(canonical); }
-    canonical.href = data.canonical;
+            <ul class="nav-desktop">
+                <li><button class="nav-link active" data-page="home">Chi siamo</button></li>
+                <li><button class="nav-link" data-page="progetto">Il progetto</button></li>
+                <li><button class="nav-link" data-page="contatti">Contatti</button></li>
+            </ul>
 
-    // Open Graph
-    const og = {
-        "og:title": data.title,
-        "og:description": data.description,
-        "og:url": data.canonical,
-        "og:type": "website",
-        "og:site_name": "Guerriere da Sempre",
-        "og:locale": "it_IT",
-        "og:image": "https://www.guerrieredasempre.it/og-image.jpg",
-        "og:image:alt": "Guerriere da Sempre – Supporto oncologico a Gessate",
+            <button class="nav-mobile-btn" aria-label="Apri menu" id="hamburger-btn">
+                <svg class="icon-menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+                <svg class="icon-x hidden" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+            </button>
+        </nav>
+
+        <div id="mobile-drawer" class="hidden">
+            <button class="nav-link" data-page="home">Chi siamo</button>
+            <button class="nav-link" data-page="progetto">Il progetto</button>
+            <button class="nav-link" data-page="contatti">Contatti</button>
+        </div>
+
+        <main>
+            
+            <div id="page-home" class="page-content active">
+                <section class="section-hero">
+                    <div class="container hero-grid">
+                        <div class="fade-in">
+                            <p class="eyebrow">Gessate (MI) · Dal 2023</p>
+                            <h1 class="hero-title">
+                                Nessuna guerriera<br>combatte <em class="text-italic">da sola</em>.
+                            </h1>
+                            <p class="hero-lead">
+                                Siamo Elena e Serena. Abbiamo attraversato il tumore e da quell'esperienza è nata un'idea semplice: essere lì, per ogni donna del territorio che affronta la stessa strada.
+                            </p>
+                            <div class="btn-group">
+                                <button class="btn btn-primary" data-page="progetto">Scopri il Passa Parrucca</button>
+                                <button class="btn btn-outline" data-page="contatti">Scrivici</button>
+                            </div>
+                        </div>
+                        <aside class="hero-aside fade-in">
+                            <p class="aside-eyebrow">Le fondatrici</p>
+                            <div class="founder-card border-bottom">
+                                <h4>Elena</h4>
+                                <p>Ha superato a testa alta una delle sfide più difficili della vita e ha scelto di trasformare quel percorso in un punto di riferimento e di sostegno per le donne della Martesana.    </p>
+                            </div>
+                            <div class="founder-card">
+                                <h4>Serena</h4>
+                                <p>Accanto a Elena fin dall'inizio. Insieme condividono ogni appuntamento, ogni consulenza, ogni messaggio che arriva.</p>
+                            </div>
+                        </aside>
+                    </div>
+                </section>
+
+                <section class="section-white">
+                    <div class="container">
+                        <div class="fade-in">
+                            <p class="eyebrow">Chi siamo</p>
+                            <h2>Due amiche, una scelta.</h2>
+                            <div class="divider"></div>
+                        </div>
+                        <div class="grid-2">
+                            <div class="fade-in">
+                                <p>Guerriere da Sempre nasce a Gessate nel 2023 dall'amicizia tra Elena e Serena. Entrambe hanno vissuto sulla propria pelle l'esperienza di un tumore e sanno cosa vuol dire svegliarsi al mattino e non riconoscersi allo specchio. Sanno cosa vuol dire avere paura e non trovare le parole giuste per dirlo.</p>
+                                <p class="mt-16">Da quella consapevolezza è nata un'idea: non aspettare che qualcuno costruisse il supporto che mancava, ma crearlo loro stesse. Con il patrocinio del Comune di Gessate, il progetto ha trovato casa sul territorio e continua a crescere grazie alla rete di donne che lo abitano.</p>
+                            </div>
+                            <div class="fade-in">
+                                <p>Non siamo un ambulatorio né uno sportello burocratico. Siamo due persone che rispondono al telefono, che vengono a prendere un caffè se serve, che aiutano a scegliere una parrucca con la stessa cura con cui si farebbe con una sorella.</p>
+                                <p class="mt-16">Il nome lo dice già tutto: guerriere lo si è sempre state, molto prima della diagnosi. Noi ci siamo solo ricordate di esserlo - e vogliamo che lo faccia anche tu.</p>
+                                <div class="quote-card">
+                                    <p class="quote-text">"Guerriere lo si è sempre state, molto prima della diagnosi."</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="section-tinted">
+                    <div class="container">
+                        <div class="fade-in">
+                            <p class="eyebrow">Una voce dalla comunità</p>
+                            <h2>Chi ci ha già incontrato.</h2>
+                            <div class="divider"></div>
+                        </div>
+                        <div class="fade-in mt-48">
+                            <div class="testimonial-box">
+                                <blockquote>
+                                    "TESTIMONIANZA"
+                                </blockquote>
+                                <cite>
+                                    <strong>Una guerriera della Martesana</strong>
+                                    Gessate, 2024
+                                </cite>
+                            </div>
+                        </div>
+                        <div class="text-center mt-40 fade-in">
+                            <p class="mb-16 font-300 text-medium">Hai una storia da raccontare? Scrivici: ogni voce aiuta un'altra donna a trovare la strada.</p>
+                            <button class="btn btn-outline" data-page="contatti">Racconta la tua storia</button>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <div id="page-progetto" class="page-content">
+                <section class="section-tinted">
+                    <div class="container">
+                        <div class="fade-in">
+                            <p class="eyebrow">Il nostro servizio principale</p>
+                            <h1>Passa Parrucca</h1>
+                            <div class="divider"></div>
+                        </div>
+                        <div class="grid-2 items-start mt-56">
+                            <div class="fade-in">
+                                <p>Perdere i capelli durante la chemioterapia non è un dettaglio. È una delle cose che più pesano, perché tocca l'immagine di sé ogni volta che ti guardi. Per questo abbiamo costruito una piccola biblioteca di parrucche - donate da donne che hanno finito le cure - che mettiamo a disposizione gratuitamente di chi ne ha bisogno.</p>
+                                <p class="mt-16">Il servizio è completamente gratuito e dura per tutto il tempo delle cure. Quando i capelli tornano, la parrucca viene restituita, igienizzata con cura professionale e rimessa a disposizione della prossima guerriera.</p>
+                                <div class="mt-24">
+                                    <button class="btn btn-primary" data-page="contatti">Prenota una consulenza</button>
+                                </div>
+                            </div>
+                            <div class="fade-in steps-box">
+                                <div class="step-row">
+                                    <span class="step-num">01</span>
+                                    <div>
+                                        <h4>Scrivici o chiamaci</h4>
+                                        <p>Contattaci via Instagram, Facebook o WhatsApp. Rispondiamo noi direttamente, senza call center né moduli da compilare.</p>
+                                    </div>
+                                </div>
+                                <div class="step-row">
+                                    <span class="step-num">02</span>
+                                    <div>
+                                        <h4>Consulenza riservata a Gessate</h4>
+                                        <p>Ci vediamo in uno spazio intimo e privato. Ti mostriamo i modelli disponibili e ti aiutiamo a scegliere quello più adatto a te, con calma.</p>
+                                    </div>
+                                </div>
+                                <div class="step-row">
+                                    <span class="step-num">03</span>
+                                    <div>
+                                        <h4>La tieni per tutto il tempo che ti serve</h4>
+                                        <p>Non ci sono scadenze né burocrazia. La parrucca rimane tua fino a quando i capelli non ricrescono da soli.</p>
+                                    </div>
+                                </div>
+                                <div class="step-row">
+                                    <span class="step-num">04</span>
+                                    <div>
+                                        <h4>La restituisci, la catena continua</h4>
+                                        <p>Una volta finita, la parrucca torna a noi, viene igienizzata e donata alla prossima donna che ne ha bisogno.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="section-white">
+                    <div class="container">
+                        <div class="fade-in">
+                            <p class="eyebrow">Come ti supportiamo</p>
+                            <h2>Molto più di una parrucca.</h2>
+                            <div class="divider"></div>
+                        </div>
+                        <div class="grid-3 services-border mt-56">
+                            <div class="service-card fade-in">
+                                <div class="service-icon">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l1.5 4.5L18 9l-4.5 1.5L12 15l-1.5-4.5L6 9l4.5-1.5z"/><path d="M19 13l.75 2.25L22 16l-2.25.75L19 19l-.75-2.25L16 16l2.25-.75z"/></svg>
+                                </div>
+                                <h3>Estetica oncologica</h3>
+                                <p>Consigli pratici su come gestire la perdita di ciglia e sopracciglia, e sessioni di make-up curativo per aiutarti a riconoscerti allo specchio durante le cure.</p>
+                            </div>
+                            <div class="service-card fade-in">
+                                <div class="service-icon">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+                                </div>
+                                <h3>Ascolto tra pari</h3>
+                                <p>Non è una terapia clinica: è la voce di chi ci è già passata. Condividiamo paure, dubbi e piccoli traguardi quotidiani - da amica ad amica.</p>
+                            </div>
+                            <div class="service-card fade-in">
+                                <div class="service-icon">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="13" cy="4" r="1"/><path d="M7 21l2-8 2 3 3-5 2 10"/><path d="M7 11l2-3 4 1 2-4"/></svg>
+                                </div>
+                                <h3>Gruppi di Cammino ed eventi</h3>
+                                <p>Camminate solidali a Gessate, banchetti informativi e serate di sensibilizzazione per la prevenzione oncologica sul territorio della Martesana.</p>
+                            </div>
+                        </div>
+
+                        <div class="grid-2 gap-32 mt-64">
+                            <div class="stat-card fade-in">
+                                <p class="stat-num">2023</p>
+                                <p class="stat-label">Anno di fondazione</p>
+                                <p class="stat-desc">Nate dall'esperienza diretta, non da un piano aziendale.</p>
+                            </div>
+                            <div class="stat-card fade-in">
+                                <p class="stat-num">100%</p>
+                                <p class="stat-label">Servizio gratuito</p>
+                                <p class="stat-desc">Il Passa Parrucca non ha costi. Mai. Per nessuna.</p>
+                            </div>
+                            <div class="stat-card fade-in">
+                                <p class="stat-num">Gessate</p>
+                                <p class="stat-label">Radicamento locale</p>
+                                <p class="stat-desc">Patrocinio del Comune, spaces comunali, presenza reale sul territorio.</p>
+                            </div>
+                            <div class="stat-card fade-in">
+                                <p class="stat-num">Sempre</p>
+                                <p class="stat-label">Risposta personale</p>
+                                <p class="stat-desc">Non un chatbot, non un form. Elena o Serena.</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <div id="page-contatti" class="page-content">
+                <section class="section-white">
+                    <div class="container">
+                        <div class="fade-in">
+                            <p class="eyebrow">Contatti</p>
+                            <h1>Scrivici. Ci siamo noi.</h1>
+                            <div class="divider"></div>
+                            <p class="hero-lead">Non c'è né centralino, né form da compilare. Ci siamo noi a risponderti.</p>
+                        </div>
+
+                        <div class="grid-2 contact-box mt-56">
+                            <div class="contact-col border-right fade-in">
+                                <h3>Dove siamo</h3>
+                                
+                                <a href="https://maps.google.com/?q=Gessate" target="_blank" rel="noopener noreferrer" class="contact-link">
+                                    <span class="contact-icon">
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                                    </span>
+                                    <div>
+                                        <p class="link-label">Gessate (MI)</p>
+                                        <p class="sub-label">Spazi comunali - su appuntamento</p>
+                                    </div>
+                                </a>
+
+                                <div class="contact-link no-click">
+                                    <span class="contact-icon">
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                                    </span>
+                                    <div>
+                                        <p class="link-label" style="text-decoration:none;">Risposta entro poche ore</p>
+                                        <p class="sub-label">Siamo volontarie. Nessuna richiesta resta senza risposta.</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="contact-col fade-in">
+                                <h3>Scrivici sui social</h3>
+
+                                <a href="https://www.instagram.com/guerrieredasempre/" target="_blank" rel="noopener noreferrer" class="contact-link items-center">
+                                    <span class="contact-icon">
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+                                    </span>
+                                    <div style="flex: 1;">
+                                        <p class="link-label">@guerrieredasempre</p>
+                                        <p class="sub-label">Instagram · messaggio diretto</p>
+                                    </div>
+                                    <button id="open-qr-btn" class="qr-btn" title="Mostra QR code">
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:14px;height:14px;"><rect x="3" y="3" width="5" height="5" rx=".5"/><rect x="16" y="3" width="5" height="5" rx=".5"/><rect x="3" y="16" width="5" height="5" rx=".5"/><rect x="5" y="5" width="1" height="1"/><rect x="18" y="5" width="1" height="1"/><rect x="5" y="18" width="1" height="1"/><path d="M16 16h2v2h-2zM20 16h1v1h-1zM16 20h1v1h-1zM18 18h3v3h-3z"/><path d="M10 3v3M10 8v1M3 10h3M8 10h1M10 13v3M13 3h1M13 8h1M13 13h1M13 18h1"/></svg>
+                                        QR
+                                    </button>
+                                </a>
+
+                                <a href="https://www.facebook.com/guerrieredasempre" target="_blank" rel="noopener noreferrer" class="contact-link no-border">
+                                    <span class="contact-icon">
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+                                    </span>
+                                    <div>
+                                        <p class="link-label">Guerriere da Sempre</p>
+                                        <p class="sub-label">Facebook · pagina ufficiale</p>
+                                    </div>
+                                </a>
+
+                                <div class="patrocinio-box">
+                                    <p>Il Comune di Gessate patrocina il progetto e mette a disposizione gli spazi per le consulenze e gli eventi sul territorio.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+        </main>
+
+        <div id="qr-modal" class="modal-overlay hidden">
+            <div class="modal-body">
+                <img src="assets/ig_qr.webp" alt="QR code Instagram @guerrieredasempre" width="500" height="574" class="qr-img">
+                
+                
+                <button id="close-qr-btn" class="modal-close-btn">Chiudi</button>
+            </div>
+        </div>
+
+        <footer>
+            <div class="container footer-content">
+                <div class="grid-3 no-border-m">
+                    <div>
+                        <div class="footer-logo">
+                            Guerriere <em class="brand-accent-light">da Sempre</em>
+                        </div>
+                        <p class="footer-info">
+                            Progetto di volontariato fondato da Elena e Serena.<br>
+                            <address style="font-style: normal; display: inline;color: #666;font-size: 14px;">Gessate (MI) · Con il patrocinio del Comune di Gessate.</address><br>
+                            Attive dal 2023.
+                        </p>
+                    </div>
+                    <div>
+                        <h5 class="footer-heading">Il progetto</h5>
+                        <ul class="footer-links">
+                            <li><button class="footer-btn" data-page="home">Chi siamo</button></li>
+                            <li><button class="footer-btn" data-page="progetto">Il progetto</button></li>
+                            <li><button class="footer-btn" data-page="contatti">Contatti</button></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h5 class="footer-heading">Seguici</h5>
+                        <ul class="footer-links">
+                            <li><a href="https://www.instagram.com/guerrieredasempre/" target="_blank" rel="noopener">Instagram</a></li>
+                            <li><a href="https://www.facebook.com/guerrieredasempre" target="_blank" rel="noopener">Facebook</a></li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="footer-bottom">
+                    <p class="copyright">© 2025 Guerriere da Sempre · Gessate (MI)</p>
+                    <div class="footer-social-icons">
+                        <a href="https://www.instagram.com/guerrieredasempre/" target="_blank" rel="noopener noreferrer">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:20px;height:20px;"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+                        </a>
+                        <a href="https://www.facebook.com/guerrieredasempre" target="_blank" rel="noopener noreferrer">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:20px;height:20px;"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+        <script>
+            // ─── DATI SEO E STRUTTURATI ──────────────────────────────────────────────────
+    const SEO_DATA = {
+        home: {
+            title: "Guerriere da Sempre | Supporto oncologico a Gessate (MI)",
+            description: "Progetto di volontariato fondato da Elena e Serena a Gessate (MI). Offriamo il Passa Parrucca gratuito, ascolto tra pari ed estetica oncologica per donne in cura. Con il patrocinio del Comune di Gessate.",
+            canonical: "https://www.guerrieredasempre.it/",
+        },
+        progetto: {
+            title: "Il Progetto – Passa Parrucca e Servizi | Guerriere da Sempre",
+            description: "Scopri il Passa Parrucca: parrucche gratuite per donne in chemioterapia a Gessate e nella Martesana. Inoltre estetica oncologica, ascolto tra pari e gruppi di cammino.",
+            canonical: "https://www.guerrieredasempre.it/progetto/",
+        },
+        contatti: {
+            title: "Contatti | Guerriere da Sempre – Gessate (MI)",
+            description: "Scrivici su Instagram o Facebook. Guerriere da Sempre risponde direttamente, senza centralino. Consulenze a Gessate (MI) su appuntamento, con il patrocinio del Comune.",
+            canonical: "https://www.guerrieredasempre.it/contatti/",
+        }
     };
-    Object.entries(og).forEach(([property, content]) => {
-        let tag = document.querySelector(`meta[property="${property}"]`);
-        if (!tag) { tag = document.createElement("meta"); tag.setAttribute("property", property); document.head.appendChild(tag); }
-        tag.content = content;
-    });
 
-    // Structured Data JSON-LD
-    if (!document.getElementById("jsonld-org")) {
-        const script = document.createElement("script");
-        script.id = "jsonld-org";
-        script.type = "application/ld+json";
-        script.textContent = JSON.stringify(JSON_LD);
-        document.head.appendChild(script);
-    }
-}
-
-// Navigazione orchestrata col Velo Magenta
-function navigateTo(page, clickEvent = null) {
-    if (page === currentPage || isTransitioning) return;
-    isTransitioning = true;
-
-    const veil = document.getElementById("transition-veil");
-    
-    // Imposta l'origine della transizione in base al click del mouse
-    if (clickEvent) {
-        const rect = clickEvent.currentTarget.getBoundingClientRect();
-        const originX = `${rect.left + rect.width / 2}px`;
-        const originY = `${rect.top + rect.height / 2}px`;
-        veil.style.transformOrigin = `${originX} ${originY}`;
-    } else {
-        veil.style.transformOrigin = "50% 50%";
-    }
-
-    // Fase 1: Copertura (il velo sale)
-    veil.className = "veil-cover";
-
-    setTimeout(() => {
-        // Disattiva vecchia pagina, attiva la nuova
-        document.querySelectorAll('.page-content').forEach(p => p.classList.remove('active'));
-        document.getElementById(`page-${page}`).classList.add('active');
-
-        // Aggiorna classi bottoni di navigazione attiva
-        document.querySelectorAll(`[data-page]`).forEach(btn => {
-            if(btn.getAttribute('data-page') === page && btn.classList.contains('nav-link')) {
-                btn.classList.add('active');
-            } else if (btn.classList.contains('nav-link')) {
-                btn.classList.remove('active');
+    const JSON_LD = {
+        "@context": "https://schema.org",
+        "@graph": [{
+            "@type": ["Organization", "LocalBusiness"],
+            "@id": "https://www.guerrieredasempre.it/#org",
+            "name": "Guerriere da Sempre",
+            "description": "Progetto di volontariato oncologico fondato da Elena e Serena a Gessate (MI). Offre il Passa Parrucca gratuito, ascolto tra pari ed estetica oncologica.",
+            "url": "https://www.guerrieredasempre.it",
+            "foundingDate": "2023",
+            "areaServed": { "@type": "AdministrativeArea", "name": "Martesana, Gessate (MI)" },
+            "address": { "@type": "PostalAddress", "addressLocality": "Gessate", "addressRegion": "MI", "addressCountry": "IT" },
+            "sameAs": ["https://www.instagram.com/guerrieredasempre/", "https://www.facebook.com/guerrieredasempre"],
+            "founder": [{ "@type": "Person", "name": "Elena" }, { "@type": "Person", "name": "Serena" }],
+            "knowsAbout": ["supporto oncologico", "chemioterapia", "parrucche oncologiche", "estetica oncologica", "volontariato sanitario"],
+            "hasOfferCatalog": {
+                "@type": "OfferCatalog",
+                "name": "Servizi gratuiti per donne in cura",
+                "itemListElement": [
+                    { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Passa Parrucca", "description": "Prestito gratuito di parrucche per donne in chemioterapia, senza burocrazia né scadenze." }, "price": "0", "priceCurrency": "EUR" },
+                    { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Estetica oncologica", "description": "Consigli e sessioni di make-up curativo durante le cure oncologiche." }, "price": "0", "priceCurrency": "EUR" },
+                    { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Ascolto tra pari", "description": "Supporto emotivo da parte di chi ha vissuto l'esperienza del tumore in prima persona." }, "price": "0", "priceCurrency": "EUR" }
+                ]
             }
+        }]
+    };
+
+    // ─── ROUTER & MOTORE SEO DYNAMIC ─────────────────────────────────────────────
+    let currentPage = "home";
+    let isTransitioning = false;
+
+    function updateSEO(page) {
+        const data = SEO_DATA[page];
+        if (!data) return;
+
+        // Head primario
+        document.title = data.title;
+        document.documentElement.lang = "it";
+
+        let metaDesc = document.querySelector('meta[name="description"]');
+        if (!metaDesc) { metaDesc = document.createElement("meta"); metaDesc.name = "description"; document.head.appendChild(metaDesc); }
+        metaDesc.content = data.description;
+
+        let canonical = document.querySelector('link[rel="canonical"]');
+        if (!canonical) { canonical = document.createElement("link"); canonical.rel = "canonical"; document.head.appendChild(canonical); }
+        canonical.href = data.canonical;
+
+        // Open Graph
+        const og = {
+            "og:title": data.title,
+            "og:description": data.description,
+            "og:url": data.canonical,
+            "og:type": "website",
+            "og:site_name": "Guerriere da Sempre",
+            "og:locale": "it_IT",
+            "og:image": "https://www.guerrieredasempre.it/og-image.jpg",
+            "og:image:alt": "Guerriere da Sempre – Supporto oncologico a Gessate",
+        };
+        Object.entries(og).forEach(([property, content]) => {
+            let tag = document.querySelector(`meta[property="${property}"]`);
+            if (!tag) { tag = document.createElement("meta"); tag.setAttribute("property", property); document.head.appendChild(tag); }
+            tag.content = content;
         });
 
-        currentPage = page;
-        updateSEO(page);
-        window.scrollTo({ top: 0, behavior: "instant" });
+        // Structured Data JSON-LD
+        if (!document.getElementById("jsonld-org")) {
+            const script = document.createElement("script");
+            script.id = "jsonld-org";
+            script.type = "application/ld+json";
+            script.textContent = JSON.stringify(JSON_LD);
+            document.head.appendChild(script);
+        }
+    }
 
-        // Forza il riavvio immediato dell'IntersectionObserver sulla nuova pagina
-        initScrollAnimations();
+    // Navigazione orchestrata col Velo Magenta
+    function navigateTo(page, clickEvent = null) {
+        if (page === currentPage || isTransitioning) return;
+        isTransitioning = true;
 
-        // Fase 2: Rivelazione (il velo si ritira verso l'alto)
-        veil.style.transformOrigin = "50% 0px";
-        veil.className = "veil-idle";
+        const veil = document.getElementById("transition-veil");
+        
+        // Imposta l'origine della transizione in base al click del mouse
+        if (clickEvent) {
+            const rect = clickEvent.currentTarget.getBoundingClientRect();
+            const originX = `${rect.left + rect.width / 2}px`;
+            const originY = `${rect.top + rect.height / 2}px`;
+            veil.style.transformOrigin = `${originX} ${originY}`;
+        } else {
+            veil.style.transformOrigin = "50% 50%";
+        }
+
+        // Fase 1: Copertura (il velo sale)
+        veil.className = "veil-cover";
 
         setTimeout(() => {
-            isTransitioning = false;
+            // Disattiva vecchia pagina, attiva la nuova
+            document.querySelectorAll('.page-content').forEach(p => p.classList.remove('active'));
+            document.getElementById(`page-${page}`).classList.add('active');
+
+            // Aggiorna classi bottoni di navigazione attiva
+            document.querySelectorAll(`[data-page]`).forEach(btn => {
+                if(btn.getAttribute('data-page') === page && btn.classList.contains('nav-link')) {
+                    btn.classList.add('active');
+                } else if (btn.classList.contains('nav-link')) {
+                    btn.classList.remove('active');
+                }
+            });
+
+            currentPage = page;
+            updateSEO(page);
+            window.scrollTo({ top: 0, behavior: "instant" });
+
+            // Forza il riavvio immediato dell'IntersectionObserver sulla nuova pagina
+            initScrollAnimations();
+
+            // Fase 2: Rivelazione (il velo si ritira verso l'alto)
+            veil.style.transformOrigin = "50% 0px";
+            veil.className = "veil-idle";
+
+            setTimeout(() => {
+                isTransitioning = false;
+            }, 480);
+
         }, 480);
-
-    }, 480);
-}
-
-// ─── ELEMENTI INTERATTIVI E LISTENER ──────────────────────────────────────────
-document.addEventListener("DOMContentLoaded", () => {
-    // Inizializzazione SEO iniziale
-    updateSEO("home");
-
-    // Click sui bottoni con attributo data-page (Navigazione Globale)
-    document.body.addEventListener("click", (e) => {
-        const targetPageBtn = e.target.closest("[data-page]");
-        if (targetPageBtn) {
-            const page = targetPageBtn.getAttribute("data-page");
-            navigateTo(page, e);
-            
-            // Chiude il menu mobile se un bottone interno viene cliccato
-            document.getElementById("mobile-drawer").classList.add("hidden");
-            document.querySelector(".icon-menu").classList.remove("hidden");
-            document.querySelector(".icon-x").classList.add("hidden");
-        }
-    });
-
-    // Controllo Scroll per l'effetto ombra della Nav
-    window.addEventListener("scroll", () => {
-        const nav = document.getElementById("main-nav");
-        if (window.scrollY > 10) {
-            nav.classList.add("scrolled");
-        } else {
-            nav.classList.remove("scrolled");
-        }
-    });
-
-    // Menu Mobile (Hamburger logic)
-    const hamburgerBtn = document.getElementById("hamburger-btn");
-    const mobileDrawer = document.getElementById("mobile-drawer");
-    const iconMenu = document.querySelector(".icon-menu");
-    const iconX = document.querySelector(".icon-x");
-
-    hamburgerBtn.addEventListener("click", () => {
-        const isOpen = !mobileDrawer.classList.contains("hidden");
-        if (isOpen) {
-            mobileDrawer.classList.add("hidden");
-            iconMenu.classList.remove("hidden");
-            iconX.classList.add("hidden");
-            hamburgerBtn.setAttribute("aria-label", "Apri menu");
-        } else {
-            mobileDrawer.classList.remove("hidden");
-            iconMenu.classList.add("hidden");
-            iconX.classList.remove("hidden");
-            hamburgerBtn.setAttribute("aria-label", "Chiudi menu");
-        }
-    });
-
-    // Gestione Modale QR Code (Instagram)
-    const openQrBtn = document.getElementById("open-qr-btn");
-    const closeQrBtn = document.getElementById("close-qr-btn");
-    const qrModal = document.getElementById("qr-modal");
-
-    if (openQrBtn) {
-        openQrBtn.addEventListener("click", (e) => {
-            e.preventDefault();
-            e.stopPropagation();
-            qrModal.classList.remove("hidden");
-        });
     }
 
-    if (closeQrBtn) {
-        closeQrBtn.addEventListener("click", () => qrModal.classList.add("hidden"));
-    }
+    // ─── ELEMENTI INTERATTIVI E LISTENER ──────────────────────────────────────────
+    document.addEventListener("DOMContentLoaded", () => {
+        // Inizializzazione SEO iniziale
+        updateSEO("home");
 
-    if (qrModal) {
-        qrModal.addEventListener("click", () => qrModal.classList.add("hidden"));
-        qrModal.querySelector(".modal-body").addEventListener("click", (e) => e.stopPropagation());
-    }
-
-    // Chiudi modale con tasto ESC
-    document.addEventListener("keydown", (e) => {
-        if (e.key === "Escape") {
-            qrModal.classList.add("hidden");
-        }
-    });
-
-    // Inizializza animazioni di scroll
-    initScrollAnimations();
-});
-
-// ─── INTERSECTION OBSERVER (FADE-IN SULLO SCROLL) ───────────────────────────
-function initScrollAnimations() {
-    const fadeElements = document.querySelectorAll(".fade-in:not(.visible)");
-    
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach((entry, index) => {
-            if (entry.isIntersecting) {
-                // Introduce un micro-delay sequenziale se gli elementi appaiono insieme
-                setTimeout(() => {
-                    entry.target.classList.add("visible");
-                }, index * 80);
-                observer.unobserve(entry.target);
+        // Click sui bottoni con attributo data-page (Navigazione Globale)
+        document.body.addEventListener("click", (e) => {
+            const targetPageBtn = e.target.closest("[data-page]");
+            if (targetPageBtn) {
+                const page = targetPageBtn.getAttribute("data-page");
+                navigateTo(page, e);
+                
+                // Chiude il menu mobile se un bottone interno viene cliccato
+                document.getElementById("mobile-drawer").classList.add("hidden");
+                document.querySelector(".icon-menu").classList.remove("hidden");
+                document.querySelector(".icon-x").classList.add("hidden");
             }
         });
-    }, {
-        threshold: 0.08
+
+        // Controllo Scroll per l'effetto ombra della Nav
+        window.addEventListener("scroll", () => {
+            const nav = document.getElementById("main-nav");
+            if (window.scrollY > 10) {
+                nav.classList.add("scrolled");
+            } else {
+                nav.classList.remove("scrolled");
+            }
+        });
+
+        // Menu Mobile (Hamburger logic)
+        const hamburgerBtn = document.getElementById("hamburger-btn");
+        const mobileDrawer = document.getElementById("mobile-drawer");
+        const iconMenu = document.querySelector(".icon-menu");
+        const iconX = document.querySelector(".icon-x");
+
+        hamburgerBtn.addEventListener("click", () => {
+            const isOpen = !mobileDrawer.classList.contains("hidden");
+            if (isOpen) {
+                mobileDrawer.classList.add("hidden");
+                iconMenu.classList.remove("hidden");
+                iconX.classList.add("hidden");
+                hamburgerBtn.setAttribute("aria-label", "Apri menu");
+            } else {
+                mobileDrawer.classList.remove("hidden");
+                iconMenu.classList.add("hidden");
+                iconX.classList.remove("hidden");
+                hamburgerBtn.setAttribute("aria-label", "Chiudi menu");
+            }
+        });
+
+        // Gestione Modale QR Code (Instagram)
+        const openQrBtn = document.getElementById("open-qr-btn");
+        const closeQrBtn = document.getElementById("close-qr-btn");
+        const qrModal = document.getElementById("qr-modal");
+
+        if (openQrBtn) {
+            openQrBtn.addEventListener("click", (e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                qrModal.classList.remove("hidden");
+            });
+        }
+
+        if (closeQrBtn) {
+            closeQrBtn.addEventListener("click", () => qrModal.classList.add("hidden"));
+        }
+
+        if (qrModal) {
+            qrModal.addEventListener("click", () => qrModal.classList.add("hidden"));
+            qrModal.querySelector(".modal-body").addEventListener("click", (e) => e.stopPropagation());
+        }
+
+        // Chiudi modale con tasto ESC
+        document.addEventListener("keydown", (e) => {
+            if (e.key === "Escape") {
+                qrModal.classList.add("hidden");
+            }
+        });
+
+        // Inizializza animazioni di scroll
+        initScrollAnimations();
     });
 
-    fadeElements.forEach(el => observer.observe(el));
-}
-    </script>
-</body>
-</html>
+    // ─── INTERSECTION OBSERVER (FADE-IN SULLO SCROLL) ───────────────────────────
+    function initScrollAnimations() {
+        const fadeElements = document.querySelectorAll(".fade-in:not(.visible)");
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry, index) => {
+                if (entry.isIntersecting) {
+                    // Introduce un micro-delay sequenziale se gli elementi appaiono insieme
+                    setTimeout(() => {
+                        entry.target.classList.add("visible");
+                    }, index * 80);
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, {
+            threshold: 0.08
+        });
+
+        fadeElements.forEach(el => observer.observe(el));
+    }
+        </script>
+    </body>
+    </html>
