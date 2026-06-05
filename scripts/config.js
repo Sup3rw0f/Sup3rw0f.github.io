@@ -18,6 +18,11 @@ export const SEO_DATA = {
         title: "Contatti - Guerriere da Sempre",
         description: "Scrivici su Instagram, Facebook o TikTok. Siamo Elena e Serena e rispondiamo personalmente a ogni messaggio.",
         canonical: "https://www.guerrieredasempre.it/contatti"
+    },
+    sostienici: {
+        title: "Sostienici - Guerriere da Sempre",
+        description: "Scopri come sostenere Guerriere da Sempre e il servizio gratuito Passa Parrucca sul territorio di Gessate.",
+        canonical: "https://www.guerrieredasempre.it/sostienici"
     }
 };
 
@@ -42,5 +47,6 @@ export const JSON_LD = {
 
 export const BACHECA_CONFIG = {
     apiKey: "AIzaSyBOFCXDUfQo4I-nxEy72wqSKOMctayjqW0",
-    folderId: "1Md5bbkUSGFOjD0hSsjNSrK2xx9DVJ1hi"
+    folderId: "1Md5bbkUSGFOjD0hSsjNSrK2xx9DVJ1hi",
+    fallbackEmbedUrl: "https://drive.google.com/embeddedfolderview?id=1Md5bbkUSGFOjD0hSsjNSrK2xx9DVJ1hi#grid"
 };

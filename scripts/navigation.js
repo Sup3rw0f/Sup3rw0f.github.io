@@ -3,7 +3,7 @@ import { updateSEO } from "./seo.js";
 
 let currentPage = "home";
 let isTransitioning = false;
-const VALID_PAGES = new Set(["home", "progetto", "bacheca", "contatti"]);
+const VALID_PAGES = new Set(["home", "progetto", "bacheca", "contatti", "sostienici"]);
 
 function getPageFromHash() {
     const page = window.location.hash.replace("#", "");

@@ -204,6 +204,18 @@ nav.scrolled {
     background: var(--M-soft);
 }
 
+.nav-link-cta {
+    color: var(--white);
+    background: var(--M);
+    box-shadow: 0 10px 26px rgba(174, 20, 168, .18);
+}
+
+.nav-link-cta:hover,
+.nav-link-cta.active {
+    color: var(--white);
+    background: var(--M-dark);
+}
+
 .nav-mobile-btn {
     display: none;
     align-items: center;
@@ -287,6 +299,12 @@ nav.scrolled {
     border-color: var(--B-strong);
 }
 
+.btn-ghost {
+    color: var(--M);
+    background: var(--M-soft);
+    border-color: transparent;
+}
+
 .btn:hover {
     transform: translateY(-1px);
 }
@@ -299,6 +317,11 @@ nav.scrolled {
 .btn-outline:hover {
     border-color: var(--M);
     color: var(--M);
+}
+
+.btn-ghost:hover {
+    color: var(--white);
+    background: var(--M);
 }
 
 .page-content {
@@ -618,6 +641,72 @@ nav.scrolled {
     border: 1px solid var(--B);
     border-radius: var(--radius);
     font-weight: 300;
+}
+
+.drive-fallback {
+    grid-column: 1 / -1;
+    display: grid;
+    gap: 18px;
+    justify-items: center;
+    padding: 18px;
+    border: 1px solid var(--B);
+    border-radius: var(--radius);
+    background: var(--white);
+    box-shadow: var(--shadow-soft);
+}
+
+.drive-fallback iframe {
+    width: 100%;
+    min-height: 560px;
+    border: 0;
+    border-radius: 6px;
+    background: var(--BG-soft);
+}
+
+.support-hero {
+    background: var(--BG);
+}
+
+.support-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 32px;
+}
+
+.support-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 24px;
+}
+
+.support-card {
+    padding: 28px 24px;
+    border: 1px solid var(--B);
+    border-radius: var(--radius);
+    background: var(--white);
+    box-shadow: var(--shadow-soft);
+}
+
+.support-number {
+    display: inline-flex;
+    color: var(--M);
+    font-family: "Lora", serif;
+    font-size: 13px;
+    font-weight: 700;
+    margin-bottom: 18px;
+}
+
+.support-card h3 {
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+.support-card p {
+    color: var(--TM);
+    font-size: 13px;
+    font-weight: 300;
+    line-height: 1.65;
 }
 
 .contact-box {
@@ -1104,6 +1193,19 @@ footer .grid-3 {
     .bacheca-container {
         grid-template-columns: 1fr;
         gap: 22px;
+    }
+
+    .drive-fallback iframe {
+        min-height: 430px;
+    }
+
+    .support-actions,
+    .support-actions .btn {
+        width: 100%;
+    }
+
+    .support-grid {
+        grid-template-columns: 1fr;
     }
 
     .contact-box {
