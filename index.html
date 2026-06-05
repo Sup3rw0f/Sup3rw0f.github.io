@@ -4,7 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="theme-color" content="#ae14a8">
+    <meta name="description" content="Associazione di volontariato fondata da Elena e Serena a Gessate. Supporto gratuito per donne in cura oncologica: Passa Parrucca, estetica oncologica e ascolto tra pari.">
     <title>Guerriere da Sempre</title>
+    <link rel="icon" href="assets/icons/icon-64px.ico" sizes="64x64">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
@@ -12,7 +14,8 @@
 </head>
 <body>
 
-<div id="transition-veil"></div>
+<a class="skip-link" href="#main-content">Salta al contenuto</a>
+<div id="transition-veil" aria-hidden="true"></div>
 
 <nav aria-label="Navigazione principale" id="main-nav">
     <div class="nav-inner">
@@ -20,7 +23,7 @@
             <picture>
                 <source srcset="assets/logos/Logo-322px.png 2x, assets/logos/logo-365px.png 3x" media="(min-width: 800px)">
                 <source srcset="assets/logos/logo-161px.png 1x, assets/logos/Logo-322px.png 2x">
-                <img src="assets/logos/logo-161px.png" alt="Guerriere Da Sempre" width="464" height="161" style="width: auto; height: 36px;">
+                <img src="assets/logos/logo-161px.png" alt="Guerriere Da Sempre" width="464" height="161" decoding="async" style="width: auto; height: 36px;">
             </picture>
         </button>
 
@@ -45,7 +48,7 @@
     <button class="nav-link" data-page="contatti">Contatti</button>
 </div>
 
-<main>
+<main id="main-content" tabindex="-1">
 
     <div id="page-home" class="page-content active">
         <section class="section-hero">
@@ -61,7 +64,7 @@
                 </div>
                 <div class="hero-image-wrapper fade-in">
                     <picture>
-                        <img src="assets/images/atena-938px.jpg" alt="Atena" width="938" height="1507">
+                        <img src="assets/images/atena-938px.jpg" alt="Atena" width="938" height="1507" decoding="async" fetchpriority="high">
                     </picture>
                 </div>
             </div>
@@ -87,9 +90,7 @@
                 </div>
             </div>
         </section>
-    </div>
 
-        
         <section class="section-tinted">
             <div class="container">
                 <p class="eyebrow fade-in">Una voce dalla comunità</p>
@@ -224,7 +225,7 @@
                 <p class="hero-lead fade-in">Rimani aggiornata sulle nostre iniziative, eventi e incontri sul territorio.</p>
                 
                 <div id="bacheca-gallery" class="bacheca-container mt-56">
-                    <p class="text-medium font-300">Caricamento dei volantini in corso...</p>
+                    <p class="loading-state">Caricamento dei volantini in corso...</p>
                 </div>
             </div>
         </section>
@@ -310,27 +311,38 @@
 
 </main>
 
-<div id="qr-modal-instagram" class="modal-overlay hidden">
+<div id="qr-modal-instagram" class="modal-overlay hidden" role="dialog" aria-modal="true" aria-label="QR code Instagram">
     <div class="modal-body">
+        <button class="modal-close" type="button" data-modal-close aria-label="Chiudi">×</button>
         <picture>
-            <img src="assets/qr/QR-ig-500px.webp" alt="QR code Instagram @guerrieredasempre" width="500" height="574" class="qr-img">
+            <img src="assets/qr/QR-ig-500px.webp" alt="QR code Instagram @guerrieredasempre" width="500" height="574" class="qr-img" loading="lazy" decoding="async">
         </picture>
     </div>
 </div>
 
-<div id="qr-modal-facebook" class="modal-overlay hidden">
+<div id="qr-modal-facebook" class="modal-overlay hidden" role="dialog" aria-modal="true" aria-label="QR code Facebook">
     <div class="modal-body">
+        <button class="modal-close" type="button" data-modal-close aria-label="Chiudi">×</button>
         <picture>
-            <img src="assets/qr/QR-fb-500px.webp" alt="QR code Facebook Guerriere da Sempre" width="500" height="500" class="qr-img" data-fallback-link="https://www.facebook.com/guerrieredasempre">
+            <img src="assets/qr/QR-fb-500px.webp" alt="QR code Facebook Guerriere da Sempre" width="500" height="500" class="qr-img" loading="lazy" decoding="async" data-fallback-link="https://www.facebook.com/guerrieredasempre">
         </picture>
     </div>
 </div>
 
-<div id="qr-modal-tiktok" class="modal-overlay hidden">
+<div id="qr-modal-tiktok" class="modal-overlay hidden" role="dialog" aria-modal="true" aria-label="QR code TikTok">
     <div class="modal-body">
+        <button class="modal-close" type="button" data-modal-close aria-label="Chiudi">×</button>
         <picture>
-            <img src="assets/qr/QR-tt-500px.webp" alt="QR code TikTok @_guerriere.da.sempre_" width="500" height="500" class="qr-img">
+            <img src="assets/qr/QR-tt-500px.webp" alt="QR code TikTok @_guerriere.da.sempre_" width="500" height="500" class="qr-img" loading="lazy" decoding="async">
         </picture>
+    </div>
+</div>
+
+<div id="image-modal" class="modal-overlay hidden" role="dialog" aria-modal="true" aria-label="Anteprima bacheca">
+    <div class="modal-body modal-body-image">
+        <button class="modal-close" type="button" data-modal-close aria-label="Chiudi">×</button>
+        <img id="image-modal-img" alt="" class="preview-img">
+        <p id="image-modal-caption" class="preview-caption"></p>
     </div>
 </div>
 
@@ -341,7 +353,7 @@
                 <div class="footer-logo">
                     <picture>
                         <source srcset="assets/logos/Logo-322px.png 2x, assets/logos/logo-365px.png 3x">
-                        <img src="assets/logos/logo-161px.png" alt="Guerriere Da Sempre" width="464" height="161" style="width: auto; height: 40px; filter: brightness(0) invert(1);">
+                        <img src="assets/logos/logo-161px.png" alt="Guerriere Da Sempre" width="464" height="161" loading="lazy" decoding="async" style="width: auto; height: 40px; filter: brightness(0) invert(1);">
                     </picture>
                 </div>
                 <p class="footer-info">

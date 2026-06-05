@@ -3,6 +3,20 @@ import { updateSEO } from "./seo.js";
 
 let currentPage = "home";
 let isTransitioning = false;
+const VALID_PAGES = new Set(["home", "progetto", "bacheca", "contatti"]);
+
+function getPageFromHash() {
+    const page = window.location.hash.replace("#", "");
+    return VALID_PAGES.has(page) ? page : "home";
+}
+
+function updateHash(page) {
+    const nextHash = page === "home" ? "" : `#${page}`;
+    const nextUrl = `${window.location.pathname}${nextHash}`;
+    if (`${window.location.pathname}${window.location.hash}` !== nextUrl) {
+        window.history.pushState({ page }, "", nextUrl);
+    }
+}
 
 function updateActiveNavigation(page) {
     document.querySelectorAll("[data-page]").forEach(btn => {
@@ -11,21 +25,24 @@ function updateActiveNavigation(page) {
     });
 }
 
-function showPage(page) {
+function showPage(page, { shouldScroll = true } = {}) {
     document.querySelectorAll(".page-content").forEach(panel => panel.classList.remove("active"));
     document.getElementById(`page-${page}`)?.classList.add("active");
     updateActiveNavigation(page);
     currentPage = page;
     updateSEO(page);
-    window.scrollTo({ top: 0, behavior: "instant" });
+    if (shouldScroll) window.scrollTo({ top: 0, behavior: "instant" });
     initScrollAnimations();
 }
 
-export function navigateTo(page, clickEvent = null) {
+export function navigateTo(page, clickEvent = null, options = {}) {
+    if (!VALID_PAGES.has(page)) return;
     if (page === currentPage || isTransitioning) return;
+    const { shouldUpdateHash = true, shouldScroll = true } = options;
 
     if (window.innerWidth <= 800) {
-        showPage(page);
+        showPage(page, { shouldScroll });
+        if (shouldUpdateHash) updateHash(page);
         return;
     }
 
@@ -42,7 +59,8 @@ export function navigateTo(page, clickEvent = null) {
     veil.className = "veil-cover";
 
     setTimeout(() => {
-        showPage(page);
+        showPage(page, { shouldScroll });
+        if (shouldUpdateHash) updateHash(page);
         veil.style.transformOrigin = "right center";
         veil.className = "veil-idle";
 
@@ -53,10 +71,16 @@ export function navigateTo(page, clickEvent = null) {
 }
 
 export function setupNavigation() {
+    const initialPage = getPageFromHash();
+    if (initialPage !== "home") {
+        showPage(initialPage, { shouldScroll: false });
+    }
+
     document.body.addEventListener("click", event => {
         const targetPageBtn = event.target.closest("[data-page]");
         if (!targetPageBtn) return;
 
+        event.preventDefault();
         navigateTo(targetPageBtn.getAttribute("data-page"), event);
         document.getElementById("mobile-drawer")?.classList.add("hidden");
         document.querySelector(".icon-menu")?.classList.remove("hidden");
@@ -78,5 +102,12 @@ export function setupNavigation() {
         iconMenu?.classList.toggle("hidden", !isOpen);
         iconX?.classList.toggle("hidden", isOpen);
         hamburgerBtn.setAttribute("aria-label", isOpen ? "Apri menu" : "Chiudi menu");
+    });
+
+    window.addEventListener("popstate", () => {
+        const page = getPageFromHash();
+        if (page !== currentPage) {
+            navigateTo(page, null, { shouldUpdateHash: false });
+        }
     });
 }
