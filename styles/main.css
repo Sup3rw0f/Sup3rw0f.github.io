@@ -585,23 +585,33 @@ nav.scrolled {
 }
 
 .bacheca-container {
+    width: min(100%, 620px);
+    max-height: min(78vh, 760px);
+    margin-inline: auto;
+    padding: 10px;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    border: 1px solid var(--B);
+    border-radius: 12px;
+    background: var(--BG-soft);
+    scroll-snap-type: y proximity;
+}
+
+.bacheca-feed {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-    gap: 24px;
-    align-items: start;
+    gap: 18px;
 }
 
 .bacheca-card {
     width: 100%;
-    min-height: 180px;
     padding: 0;
     background: var(--white);
     border: 1px solid var(--B);
-    border-radius: var(--radius);
+    border-radius: 10px;
     overflow: hidden;
     box-shadow: var(--shadow-soft);
-    cursor: zoom-in;
     text-align: left;
+    scroll-snap-align: start;
     transition: transform .16s ease, box-shadow .16s ease, border-color .16s ease;
 }
 
@@ -611,17 +621,26 @@ nav.scrolled {
     box-shadow: var(--shadow-lift);
 }
 
+.bacheca-preview-btn {
+    display: block;
+    width: 100%;
+    padding: 0;
+    border: 0;
+    background: var(--white);
+    cursor: zoom-in;
+}
+
 .bacheca-card img {
     display: block;
     width: 100%;
-    aspect-ratio: 4 / 5;
+    aspect-ratio: 1 / 1;
     height: auto;
-    object-fit: cover;
+    object-fit: contain;
     background: var(--BG-soft);
 }
 
 .bacheca-card-info {
-    padding: 14px 16px 16px;
+    padding: 14px 16px 15px;
     border-top: 1px solid var(--B);
 }
 
@@ -630,6 +649,13 @@ nav.scrolled {
     font-size: 14px;
     font-weight: 700;
     line-height: 1.35;
+}
+
+.bacheca-card-info p {
+    color: var(--TL);
+    font-size: 12px;
+    font-weight: 300;
+    margin-top: 4px;
 }
 
 .loading-state,
@@ -672,6 +698,57 @@ nav.scrolled {
     flex-wrap: wrap;
     gap: 12px;
     margin-top: 32px;
+}
+
+.satispay-widget {
+    display: grid;
+    gap: 18px;
+    width: min(100%, 520px);
+    margin-top: 34px;
+    padding: 22px;
+    border: 1px solid var(--B);
+    border-radius: 12px;
+    background: var(--white);
+    box-shadow: var(--shadow-soft);
+}
+
+.satispay-label {
+    color: var(--TM);
+    font-size: 13px;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.amount-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.amount-chip {
+    min-height: 38px;
+    padding: 8px 14px;
+    border: 1px solid var(--B);
+    border-radius: 999px;
+    background: var(--white);
+    color: var(--T);
+    cursor: pointer;
+    font-weight: 700;
+    transition: color .15s ease, background .15s ease, border-color .15s ease;
+}
+
+.amount-chip:hover,
+.amount-chip[aria-pressed="true"] {
+    color: var(--white);
+    background: var(--M);
+    border-color: var(--M);
+}
+
+.satispay-status {
+    color: var(--TL);
+    font-size: 12px;
+    font-weight: 300;
+    margin: 0;
 }
 
 .support-grid {
@@ -1191,8 +1268,9 @@ footer .grid-3 {
     }
 
     .bacheca-container {
-        grid-template-columns: 1fr;
-        gap: 22px;
+        width: 100%;
+        max-height: 72vh;
+        padding: 8px;
     }
 
     .drive-fallback iframe {
@@ -1200,7 +1278,9 @@ footer .grid-3 {
     }
 
     .support-actions,
-    .support-actions .btn {
+    .support-actions .btn,
+    .satispay-widget,
+    .satispay-widget .btn {
         width: 100%;
     }
 

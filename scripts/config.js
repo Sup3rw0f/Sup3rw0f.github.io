@@ -48,5 +48,11 @@ export const JSON_LD = {
 export const BACHECA_CONFIG = {
     apiKey: "AIzaSyBOFCXDUfQo4I-nxEy72wqSKOMctayjqW0",
     folderId: "1Md5bbkUSGFOjD0hSsjNSrK2xx9DVJ1hi",
-    fallbackEmbedUrl: "https://drive.google.com/embeddedfolderview?id=1Md5bbkUSGFOjD0hSsjNSrK2xx9DVJ1hi#grid"
+    fallbackEmbedUrl: "https://drive.google.com/embeddedfolderview?id=1Md5bbkUSGFOjD0hSsjNSrK2xx9DVJ1hi#grid",
+    manifestUrl: "data/bacheca.json"
+};
+
+export const SATISPAY_CONFIG = {
+    paymentLink: "",
+    amounts: [500, 1000, 2000, 5000]
 };

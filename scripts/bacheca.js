@@ -1,62 +1,62 @@
 import { initScrollAnimations } from "./animations.js";
 import { BACHECA_CONFIG } from "./config.js";
 
-function buildDriveApiUrl() {
-    const params = new URLSearchParams({
-        q: `'${BACHECA_CONFIG.folderId}' in parents and trashed=false`,
-        key: BACHECA_CONFIG.apiKey,
-        fields: "files(id,name,mimeType)",
-        orderBy: "name"
-    });
-
-    return `https://www.googleapis.com/drive/v3/files?${params.toString()}`;
-}
-
-function renderDriveFallback(gallery) {
-    gallery.innerHTML = `
-        <div class="drive-fallback">
-            <iframe
-                title="Bacheca volantini da Google Drive"
-                src="${BACHECA_CONFIG.fallbackEmbedUrl}"
-                loading="lazy"
-                referrerpolicy="no-referrer"
-            ></iframe>
-            <a class="btn btn-outline" href="https://drive.google.com/drive/folders/${BACHECA_CONFIG.folderId}" target="_blank" rel="noopener noreferrer">Apri la bacheca su Drive</a>
-        </div>
-    `;
-}
-
-function createBachecaCard(file) {
-    const card = document.createElement("button");
+function createBachecaCard(item) {
+    const card = document.createElement("article");
     card.className = "bacheca-card fade-in";
-    card.type = "button";
-    card.setAttribute("aria-label", `Apri ${file.name}`);
 
-    const imageUrl = `https://drive.google.com/thumbnail?id=${file.id}&sz=w1000`;
+    const button = document.createElement("button");
+    button.className = "bacheca-preview-btn";
+    button.type = "button";
+    button.setAttribute("aria-label", `Apri ${item.title}`);
+
     const img = document.createElement("img");
-    img.src = imageUrl;
-    img.alt = file.name;
+    img.src = item.previewUrl || item.thumbnailUrl;
+    img.alt = item.title;
     img.loading = "lazy";
     img.decoding = "async";
     img.addEventListener("error", () => {
         img.onerror = null;
-        img.src = "https://placehold.co/600x800?text=Immagine+non+disponibile";
+        img.src = item.thumbnailUrl || "https://placehold.co/600x800?text=Immagine+non+disponibile";
     }, { once: true });
 
     const info = document.createElement("div");
     info.className = "bacheca-card-info";
     const title = document.createElement("h3");
-    title.textContent = file.name;
-    info.appendChild(title);
+    title.textContent = item.title;
+    const meta = document.createElement("p");
+    meta.textContent = item.updatedLabel ? `Aggiornato: ${item.updatedLabel}` : "Da Google Drive";
+    info.append(title, meta);
 
-    card.append(img, info);
-    card.addEventListener("click", () => {
+    button.append(img);
+    button.addEventListener("click", () => {
         window.dispatchEvent(new CustomEvent("bacheca:preview", {
-            detail: { src: imageUrl, title: file.name }
+            detail: { src: item.previewUrl || item.thumbnailUrl, title: item.title }
         }));
     });
 
+    card.append(button, info);
     return card;
+}
+
+function renderItems(gallery, items) {
+    gallery.innerHTML = "";
+
+    const feed = document.createElement("div");
+    feed.className = "bacheca-feed";
+
+    items.forEach(item => feed.appendChild(createBachecaCard(item)));
+    gallery.appendChild(feed);
+    initScrollAnimations();
+}
+
+function renderError(gallery) {
+    gallery.innerHTML = `
+        <div class="empty-state">
+            Non è stato possibile caricare la bacheca. Riprova più tardi.
+            <a href="https://drive.google.com/drive/folders/${BACHECA_CONFIG.folderId}" target="_blank" rel="noopener noreferrer">Apri Drive</a>
+        </div>
+    `;
 }
 
 export async function loadBachecaImages() {
@@ -64,24 +64,20 @@ export async function loadBachecaImages() {
     if (!gallery) return;
 
     try {
-        const response = await fetch(buildDriveApiUrl());
-        if (!response.ok) throw new Error(`Google Drive API error: ${response.status}`);
+        const response = await fetch(BACHECA_CONFIG.manifestUrl, { cache: "no-store" });
+        if (!response.ok) throw new Error(`Bacheca manifest error: ${response.status}`);
 
         const data = await response.json();
-        const imageFiles = (data.files || [])
-            .filter(file => file.mimeType.startsWith("image/"))
-            .sort((a, b) => a.name.localeCompare(b.name, "it", { numeric: true }));
+        const items = (data.items || []).filter(item => item.thumbnailUrl || item.previewUrl);
 
-        if (imageFiles.length === 0) {
-            renderDriveFallback(gallery);
+        if (items.length === 0) {
+            renderError(gallery);
             return;
         }
 
-        gallery.innerHTML = "";
-        imageFiles.forEach(file => gallery.appendChild(createBachecaCard(file)));
-        initScrollAnimations();
+        renderItems(gallery, items);
     } catch (error) {
         console.error("Errore Bacheca:", error);
-        renderDriveFallback(gallery);
+        renderError(gallery);
     }
 }

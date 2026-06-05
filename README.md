@@ -16,11 +16,18 @@ Sito statico pubblicabile su GitHub Pages.
 
 ```bash
 npm run check
+npm run update:bacheca
 ```
 
-Lo script verifica i riferimenti locali presenti nell'HTML e la sintassi dei moduli JavaScript.
+`npm run check` verifica i riferimenti locali presenti nell'HTML e la sintassi dei moduli JavaScript.
+`npm run update:bacheca` rigenera `data/bacheca.json` leggendo la cartella Drive pubblica.
 
 ## Bacheca
 
-La bacheca legge le immagini da Google Drive tramite la configurazione in `scripts/config.js`.
-Se la API Google Drive risponde con errore o non restituisce immagini, il sito mostra automaticamente la cartella Drive embeddata come fallback.
+La bacheca pubblicata legge `data/bacheca.json` e mostra un feed custom scrollabile.
+Il manifest viene generato leggendo la cartella Drive pubblica con `npm run update:bacheca`.
+
+## Satispay
+
+Il widget Satispay è configurato in `scripts/config.js`.
+Inserire in `SATISPAY_CONFIG.paymentLink` il link copiato dalla Satispay Business app o il link shop ufficiale.

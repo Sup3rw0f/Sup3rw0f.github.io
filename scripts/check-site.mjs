@@ -49,7 +49,7 @@ for (const reference of references) {
     }
 }
 
-for (const script of ["animations.js", "app.js", "bacheca.js", "config.js", "modals.js", "navigation.js", "seo.js"]) {
+for (const script of ["animations.js", "app.js", "bacheca.js", "config.js", "donations.js", "modals.js", "navigation.js", "seo.js", "update-bacheca.mjs"]) {
     const result = spawnSync(process.execPath, ["--check", path.join(root, "scripts", script)], { encoding: "utf8" });
     if (result.status !== 0) {
         errors.push(`Syntax error in scripts/${script}\n${result.stderr}`);
