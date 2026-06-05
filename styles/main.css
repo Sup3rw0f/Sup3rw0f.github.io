@@ -585,21 +585,13 @@ nav.scrolled {
 }
 
 .bacheca-container {
-    width: min(100%, 620px);
-    max-height: min(78vh, 760px);
+    width: min(100%, 720px);
     margin-inline: auto;
-    padding: 10px;
-    overflow-y: auto;
-    overscroll-behavior: contain;
-    border: 1px solid var(--B);
-    border-radius: 12px;
-    background: var(--BG-soft);
-    scroll-snap-type: y proximity;
 }
 
 .bacheca-feed {
     display: grid;
-    gap: 18px;
+    gap: 28px;
 }
 
 .bacheca-card {
@@ -611,7 +603,6 @@ nav.scrolled {
     overflow: hidden;
     box-shadow: var(--shadow-soft);
     text-align: left;
-    scroll-snap-align: start;
     transition: transform .16s ease, box-shadow .16s ease, border-color .16s ease;
 }
 
@@ -633,7 +624,7 @@ nav.scrolled {
 .bacheca-card img {
     display: block;
     width: 100%;
-    aspect-ratio: 1 / 1;
+    aspect-ratio: 4 / 5;
     height: auto;
     object-fit: contain;
     background: var(--BG-soft);
@@ -710,6 +701,29 @@ nav.scrolled {
     border-radius: 12px;
     background: var(--white);
     box-shadow: var(--shadow-soft);
+}
+
+.satispay-brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    width: max-content;
+    color: var(--T);
+    font-size: 15px;
+    font-weight: 800;
+}
+
+.satispay-mark {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 34px;
+    height: 34px;
+    border-radius: 10px;
+    color: var(--white);
+    background: #e52929;
+    font-weight: 900;
+    letter-spacing: 0;
 }
 
 .satispay-label {
@@ -1269,8 +1283,10 @@ footer .grid-3 {
 
     .bacheca-container {
         width: 100%;
-        max-height: 72vh;
-        padding: 8px;
+    }
+
+    .bacheca-feed {
+        gap: 22px;
     }
 
     .drive-fallback iframe {
