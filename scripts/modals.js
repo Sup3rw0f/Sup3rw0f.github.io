@@ -65,16 +65,18 @@ export function setupQrModals() {
     document.querySelectorAll(".modal-overlay").forEach(modal => {
         modal.setAttribute("aria-hidden", "true");
         modal.addEventListener("click", () => closeModal(modal));
-        modal.querySelector(".modal-body")?.addEventListener("click", event => event.stopPropagation());
+        modal.querySelector(".modal-body")?.addEventListener("click", event => {
+            const closeButton = event.target.closest("[data-modal-close]");
+            if (closeButton) {
+                closeModal(modal);
+                return;
+            }
+
+            event.stopPropagation();
+        });
     });
 
     document.addEventListener("click", event => {
-        const closeBtn = event.target.closest("[data-modal-close]");
-        if (closeBtn) {
-            closeModal(closeBtn.closest(".modal-overlay"));
-            return;
-        }
-
         const qrButton = event.target.closest(".qr-btn");
         if (!qrButton) return;
 
