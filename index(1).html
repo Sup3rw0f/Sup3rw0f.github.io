@@ -1,0 +1,1700 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#ae14a8">
+
+    <!-- ── SEO primario ─────────────────────────────────────────── -->
+    <title>Guerriere da Sempre – Associazione di supporto per donne con tumore | Gessate</title>
+    <meta name="description" content="Supporto fisico, morale ed estetico per donne in cura oncologica. Parrucche gratuite con il Passa Parrucca. Associazione di volontariato con sede a Gessate, serviamo la Martesana e Milano.">
+    <link rel="canonical" href="https://www.guerrieredasempre.it/">
+
+    <!-- ── Open Graph ───────────────────────────────────────────── -->
+    <meta property="og:type"        content="website">
+    <meta property="og:locale"      content="it_IT">
+    <meta property="og:site_name"   content="Guerriere da Sempre">
+    <meta property="og:title"       content="Guerriere da Sempre – Associazione di supporto per donne con tumore | Gessate">
+    <meta property="og:description" content="Supporto fisico, morale ed estetico per donne in cura oncologica. Parrucche gratuite con il Passa Parrucca. Con sede a Gessate, serviamo la Martesana e Milano.">
+    <meta property="og:url"         content="https://www.guerrieredasempre.it/">
+    <meta property="og:image"       content="https://www.guerrieredasempre.it/og-image.jpg">
+    <meta property="og:image:alt"   content="Guerriere da Sempre – Associazione di volontariato a Gessate">
+
+    <!-- ── JSON-LD: Organization + Event ───────────────────────── -->
+    <script type="application/ld+json">
+    [
+      {
+        "@context": "https://schema.org",
+        "@type": "NGO",
+        "name": "Guerriere da Sempre",
+        "alternateName": "Associazione di volontariato Guerriere da Sempre",
+        "url": "https://www.guerrieredasempre.it",
+        "description": "Associazione di volontariato a supporto delle donne in cura oncologica nel territorio di Gessate (MI). Offre supporto fisico, morale ed estetico, e il progetto Passa Parrucca.",
+        "taxID": "91607220158",
+        "email": "guerrieredasempre@pec.it",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Via Sandro Pertini, 10",
+          "addressLocality": "Gessate",
+          "postalCode": "20060",
+          "addressRegion": "MI",
+          "addressCountry": "IT"
+        },
+        "foundingDate": "2025",
+        "founders": [
+          { "@type": "Person", "name": "Serena Vecera" },
+          { "@type": "Person", "name": "Elena Pozzi" }
+        ],
+        "sameAs": [
+          "https://www.instagram.com/guerrieredasempre/",
+          "https://www.facebook.com/guerrieredasempre",
+          "http://www.tiktok.com/@_guerriere.da.sempre_"
+        ]
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "Event",
+        "name": "Birra in Pink – Festa della Birra Solidale",
+        "description": "Prima edizione della Festa della Birra Solidale organizzata da Guerriere da Sempre. Tre serate di festa, musica e solidarietà per sostenere le donne in cura oncologica nel territorio della Martesana.",
+        "startDate": "2026-07-03",
+        "endDate": "2026-07-05",
+        "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+        "eventStatus": "https://schema.org/EventScheduled",
+        "location": {
+          "@type": "Place",
+          "name": "Villa Daccò",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Gessate",
+            "postalCode": "20060",
+            "addressRegion": "MI",
+            "addressCountry": "IT"
+          }
+        },
+        "organizer": {
+          "@type": "NGO",
+          "name": "Guerriere da Sempre",
+          "url": "https://www.guerrieredasempre.it"
+        }
+      }
+    ]
+    </script>
+
+    <!-- ── Risorse ──────────────────────────────────────────────── -->
+    <link rel="icon" href="assets/icons/icon-64px.ico" sizes="any">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+</head>
+<style>
+/* ── Design tokens ──────────────────────────────────────────── */
+:root {
+    --M:    #ae14a8;
+    --M-dk: #870e82;
+    --M-lt: #f5e8f5;
+    --B:    #e8e4e8;
+    --B-lt: #f0ecf0;
+    --BG:   #faf8fa;
+    --T:    #140d13;
+    --TM:   #5a4d59;
+    --TL:   #9e8f9d;
+    --W:    #ffffff;
+
+    --nav-h: 72px;
+    --max-w: 1200px;
+    --pad-x: clamp(1.5rem, 5vw, 5rem);
+    --r:     2px;
+}
+
+/* ── Reset ──────────────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+
+body {
+    font-family: 'DM Sans', sans-serif;
+    color: var(--T);
+    background: var(--W);
+    font-size: 16px;
+    line-height: 1.7;
+    overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5 { font-family: 'Lora', serif; }
+img { display: block; max-width: 100%; }
+
+/* ── Layout helpers ─────────────────────────────────────────── */
+.container {
+    max-width: var(--max-w);
+    margin: 0 auto;
+    padding: 0 var(--pad-x);
+}
+
+section { padding: 112px 0; border-bottom: 1px solid var(--B); }
+.section-tinted { background-color: var(--BG); }
+.section-white  { background-color: var(--W); }
+
+.grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; }
+.grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); }
+.gap-32 { gap: 32px; }
+.items-start   { align-items: start; }
+.items-center  { align-items: center; }
+
+/* ── Utility ────────────────────────────────────────────────── */
+.hidden         { display: none !important; }
+.border-bottom  { border-bottom: 1px solid var(--B); }
+.border-right   { border-right:  1px solid var(--B); }
+.mt-8   { margin-top: 8px; }
+.mt-16  { margin-top: 16px; }
+.mt-24  { margin-top: 24px; }
+.mt-40  { margin-top: 40px; }
+.mt-48  { margin-top: 48px; }
+.mt-56  { margin-top: 56px; }
+.mt-64  { margin-top: 64px; }
+.mb-16  { margin-bottom: 16px; }
+.text-center { text-align: center; }
+.font-300     { font-weight: 300; }
+.text-medium  { color: var(--TM); }
+
+/* ── Nav ────────────────────────────────────────────────────── */
+nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(255,255,255,.92);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--B);
+    height: var(--nav-h);
+    transition: box-shadow .25s;
+}
+
+.nav-inner {
+    max-width: var(--max-w);
+    margin: 0 auto;
+    padding: 0 var(--pad-x);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 100%;
+}
+
+nav.scrolled { box-shadow: 0 2px 24px rgba(174,20,168,.06); }
+
+.nav-logo {
+    background: none;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    padding: 0;
+    text-decoration: none;
+}
+
+.nav-desktop {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 2px;
+}
+
+.nav-link {
+    font-size: 13.5px;
+    font-weight: 400;
+    letter-spacing: .3px;
+    color: var(--TM);
+    text-decoration: none;
+    padding: 8px 18px;
+    cursor: pointer;
+    background: none;
+    border: none;
+    font-family: 'DM Sans', sans-serif;
+    border-radius: 100px;
+    transition: color .15s, background .15s;
+    display: block;
+}
+
+.nav-link:hover  { color: var(--M); background: var(--M-lt); }
+.nav-link.active { color: var(--M); font-weight: 500; }
+
+.nav-cta {
+    margin-left: 16px;
+    font-size: 13px;
+    font-weight: 500;
+    font-family: 'DM Sans', sans-serif;
+    letter-spacing: .3px;
+    color: var(--W);
+    background: var(--M);
+    border: none;
+    border-radius: 100px;
+    padding: 9px 22px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background .15s, transform .1s;
+    display: inline-block;
+}
+.nav-cta:hover { background: var(--M-dk); transform: translateY(-1px); }
+
+.nav-mobile-btn {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--T);
+    padding: 4px;
+}
+
+#mobile-drawer {
+    position: fixed;
+    top: var(--nav-h);
+    left: 0; right: 0;
+    background: var(--W);
+    border-bottom: 1px solid var(--B);
+    z-index: 99;
+    padding: 1.25rem var(--pad-x) 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    box-shadow: 0 8px 32px rgba(0,0,0,.08);
+}
+
+/* ── Typography ─────────────────────────────────────────────── */
+.eyebrow {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--M);
+    margin-bottom: 20px;
+}
+
+.divider {
+    width: 40px;
+    height: 2px;
+    background: linear-gradient(90deg, var(--M), var(--M-dk));
+    margin-bottom: 40px;
+    border-radius: 1px;
+}
+
+/* ── Buttons ─────────────────────────────────────────────────── */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    text-decoration: none;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: .2px;
+    border-radius: 100px;
+    padding: 13px 28px;
+    cursor: pointer;
+    border: none;
+    transition: background .18s, color .18s, transform .12s, box-shadow .18s;
+}
+
+.btn-primary {
+    background: var(--M);
+    color: var(--W);
+    box-shadow: 0 4px 20px rgba(174,20,168,.25);
+}
+.btn-primary:hover {
+    background: var(--M-dk);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 28px rgba(174,20,168,.35);
+}
+
+.btn-outline {
+    background: transparent;
+    color: var(--T);
+    border: 1.5px solid var(--B);
+}
+.btn-outline:hover {
+    border-color: var(--M);
+    color: var(--M);
+    background: var(--M-lt);
+    transform: translateY(-2px);
+}
+
+.btn-group { display: flex; gap: 12px; margin-top: 40px; flex-wrap: wrap; }
+
+/* ── Hero ───────────────────────────────────────────────────── */
+.section-hero {
+    padding: 0;
+    border-bottom: 1px solid var(--B);
+    overflow: hidden;
+    position: relative;
+}
+
+.hero-grid {
+    display: grid;
+    grid-template-columns: 1fr 420px;
+    gap: 0;
+    min-height: calc(100vh - var(--nav-h));
+    max-height: 860px;
+}
+
+.hero-text-col {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 80px var(--pad-x) 80px clamp(2rem, 6vw, 6rem);
+}
+
+.hero-title {
+    font-size: clamp(38px, 4.5vw, 60px);
+    font-weight: 600;
+    line-height: 1.15;
+    margin-bottom: 24px;
+    letter-spacing: -.5px;
+}
+
+.text-italic { color: var(--M); font-style: italic; }
+
+.hero-lead {
+    font-size: 17px;
+    color: var(--TM);
+    font-weight: 300;
+    line-height: 1.85;
+    max-width: 520px;
+}
+
+.hero-image-wrapper {
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-image-wrapper::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(270deg, transparent 60%, var(--W) 100%);
+    pointer-events: none;
+}
+
+.hero-image-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+}
+
+/* ── Pillars / mini-cards nell'hero ────────────────────────── */
+.hero-pillars {
+    display: flex;
+    gap: 12px;
+    margin-top: 36px;
+    flex-wrap: wrap;
+}
+.hero-pillar {
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--M);
+    background: var(--M-lt);
+    border-radius: 100px;
+    padding: 6px 14px;
+    letter-spacing: .3px;
+}
+
+/* ── Event banner ────────────────────────────────────────────── */
+.event-banner {
+    background: linear-gradient(135deg, #1a0018 0%, #2d0029 50%, #1a0018 100%);
+    border-radius: 12px;
+    padding: 32px 36px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    flex-wrap: wrap;
+    margin-top: 48px;
+}
+.event-banner-dates {
+    font-family: 'Lora', serif;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--M);
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    margin-bottom: 6px;
+}
+.event-banner-title {
+    font-family: 'Lora', serif;
+    font-size: 22px;
+    font-weight: 600;
+    color: #fff;
+    line-height: 1.25;
+}
+.event-banner-sub {
+    font-size: 13.5px;
+    color: #9e8f9d;
+    font-weight: 300;
+    margin-top: 4px;
+}
+.event-banner-cta {
+    flex-shrink: 0;
+    font-size: 13.5px;
+    font-weight: 500;
+    font-family: 'DM Sans', sans-serif;
+    color: var(--W);
+    background: var(--M);
+    border: none;
+    border-radius: 100px;
+    padding: 10px 22px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background .15s, transform .1s;
+    white-space: nowrap;
+}
+.event-banner-cta:hover { background: var(--M-dk); transform: translateY(-1px); }
+
+/* ── Founder cards ──────────────────────────────────────────── */
+.founder-card { padding: 18px 0; border-bottom: 1px solid var(--B-lt); }
+.founder-card:last-child { border-bottom: none; }
+.founder-card h4 { font-size: 15px; font-weight: 600; margin-bottom: 4px; }
+.founder-card p  { font-size: 13.5px; color: var(--TM); font-weight: 300; line-height: 1.65; }
+
+/* ── Logo / Atena box ───────────────────────────────────────── */
+.atena-box {
+    background: var(--M-lt);
+    border-radius: 12px;
+    padding: 36px 40px;
+    border-left: 3px solid var(--M);
+    margin-top: 48px;
+}
+.atena-box h3 {
+    font-size: 17px;
+    font-weight: 600;
+    margin-bottom: 12px;
+    color: var(--M-dk);
+}
+.atena-box p {
+    font-size: 14px;
+    color: var(--TM);
+    font-weight: 300;
+    line-height: 1.75;
+}
+
+/* ── Pull quote ─────────────────────────────────────────────── */
+.quote-card {
+    margin-top: 48px;
+    padding: 28px 32px;
+    border-left: 3px solid var(--M);
+    background: var(--BG);
+    border-radius: 0 var(--r) var(--r) 0;
+}
+.quote-text {
+    font-family: 'Lora', serif;
+    font-size: 17px;
+    font-style: italic;
+    color: var(--T);
+    line-height: 1.7;
+}
+
+/* ── Testimonial ────────────────────────────────────────────── */
+.testimonial-box {
+    padding: 64px 72px;
+    border: 1px solid var(--B);
+    background: var(--W);
+    position: relative;
+}
+.testimonial-box::before {
+    content: '\201C';
+    font-family: 'Lora', serif;
+    font-size: 120px;
+    color: var(--M-lt);
+    position: absolute;
+    top: 20px;
+    left: 48px;
+    line-height: 1;
+    pointer-events: none;
+}
+.testimonial-box blockquote {
+    font-family: 'Lora', serif;
+    font-size: 22px;
+    font-style: italic;
+    color: var(--T);
+    line-height: 1.65;
+    margin-bottom: 28px;
+    position: relative;
+    z-index: 1;
+}
+.testimonial-box cite { font-size: 13px; color: var(--TL); font-style: normal; }
+.testimonial-box cite strong {
+    color: var(--TM);
+    font-weight: 500;
+    font-size: 14px;
+    display: block;
+    margin-bottom: 2px;
+}
+
+/* ── Steps ──────────────────────────────────────────────────── */
+.steps-box {
+    border: 1px solid var(--B);
+    border-radius: 8px;
+    background: var(--W);
+    overflow: hidden;
+}
+
+.step-row {
+    display: flex;
+    gap: 24px;
+    align-items: flex-start;
+    padding: 28px 32px;
+    border-bottom: 1px solid var(--B);
+    transition: background .15s;
+}
+.step-row:last-child { border-bottom: none; }
+.step-row:hover { background: var(--BG); }
+
+.step-num {
+    font-family: 'Lora', serif;
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--M);
+    min-width: 28px;
+    margin-top: 3px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+.step-row h4 { font-size: 15px; font-weight: 600; margin-bottom: 6px; }
+.step-row p  { font-size: 13.5px; color: var(--TM); font-weight: 300; line-height: 1.65; }
+
+/* ── Services ───────────────────────────────────────────────── */
+.services-border { border: 1px solid var(--B); border-radius: 8px; overflow: hidden; }
+
+.service-card {
+    padding: 44px 36px;
+    border-right: 1px solid var(--B);
+    transition: background .2s;
+    position: relative;
+}
+.service-card:last-child { border-right: none; }
+.service-card:hover { background: var(--BG); }
+
+.service-icon { margin-bottom: 20px; }
+.service-icon img  { width: 28px; height: 28px; }
+.service-icon svg  { width: 28px; height: 28px; }
+.service-card h3   { font-size: 16px; font-weight: 600; margin-bottom: 12px; }
+.service-card p    { font-size: 14px; color: var(--TM); font-weight: 300; line-height: 1.7; }
+
+/* ── Stat cards ─────────────────────────────────────────────── */
+.stat-card {
+    padding: 36px 32px;
+    border: 1px solid var(--B);
+    background: var(--BG);
+    border-radius: 8px;
+    transition: box-shadow .2s, transform .2s;
+}
+.stat-card:hover {
+    box-shadow: 0 8px 32px rgba(174,20,168,.08);
+    transform: translateY(-3px);
+}
+.stat-num   { font-family: 'Lora', serif; font-size: 36px; font-weight: 600; color: var(--M); margin-bottom: 8px; }
+.stat-label { font-size: 13px; font-weight: 600; color: var(--T); margin-bottom: 8px; letter-spacing: .3px; }
+.stat-desc  { font-size: 13.5px; color: var(--TM); font-weight: 300; line-height: 1.65; }
+
+/* ── Evento principale ──────────────────────────────────────── */
+.event-card-main {
+    background: linear-gradient(135deg, #1a0018 0%, #2d0029 50%, #1a0018 100%);
+    border-radius: 16px;
+    padding: 56px 60px;
+    color: #fff;
+    position: relative;
+    overflow: hidden;
+}
+.event-card-main::before {
+    content: '🍺';
+    position: absolute;
+    right: 48px;
+    top: 48px;
+    font-size: 80px;
+    opacity: .15;
+    line-height: 1;
+}
+.event-card-main .eyebrow { color: var(--M); margin-bottom: 12px; }
+.event-card-main h3 { font-size: clamp(24px, 3vw, 36px); font-weight: 600; color: #fff; line-height: 1.2; margin-bottom: 20px; }
+.event-card-main p { font-size: 15px; color: #b09ab0; font-weight: 300; line-height: 1.75; max-width: 560px; }
+.event-detail-row { display: flex; align-items: center; gap: 10px; margin-top: 12px; }
+.event-detail-row span { font-size: 13.5px; color: #b09ab0; font-weight: 300; }
+.event-detail-row strong { color: #fff; font-weight: 500; }
+
+/* ── Bacheca ────────────────────────────────────────────────── */
+.bacheca-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+    gap: 40px;
+    align-items: start;
+}
+
+.bacheca-card {
+    background: var(--W);
+    border: 1px solid var(--B);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 12px rgba(0,0,0,.04);
+    transition: box-shadow .2s, transform .2s;
+}
+.bacheca-card:hover {
+    box-shadow: 0 8px 32px rgba(0,0,0,.1);
+    transform: translateY(-4px);
+}
+.bacheca-card img { width: 100%; height: auto; }
+
+/* ── Sostienici ─────────────────────────────────────────────── */
+.sostieni-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin-top: 56px;
+}
+.sostieni-card {
+    border: 1px solid var(--B);
+    border-radius: 10px;
+    padding: 32px 28px;
+    transition: box-shadow .2s, transform .2s, border-color .2s;
+}
+.sostieni-card:hover {
+    border-color: var(--M);
+    box-shadow: 0 8px 32px rgba(174,20,168,.08);
+    transform: translateY(-3px);
+}
+.sostieni-card .sostieni-icon { font-size: 28px; margin-bottom: 16px; }
+.sostieni-card h3 { font-size: 16px; font-weight: 600; margin-bottom: 10px; }
+.sostieni-card p  { font-size: 13.5px; color: var(--TM); font-weight: 300; line-height: 1.7; }
+.sostieni-card .btn { margin-top: 20px; font-size: 13px; padding: 10px 20px; }
+
+.iban-box {
+    background: var(--BG);
+    border: 1px solid var(--B);
+    border-radius: 10px;
+    padding: 32px 36px;
+    margin-top: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    flex-wrap: wrap;
+}
+.iban-box h3 { font-size: 15px; font-weight: 600; margin-bottom: 6px; }
+.iban-box p  { font-size: 13px; color: var(--TM); font-weight: 300; }
+.iban-code {
+    font-family: 'Lora', serif;
+    font-size: 17px;
+    font-weight: 600;
+    color: var(--M);
+    letter-spacing: 2px;
+    margin-top: 8px;
+}
+.cinque-per-mille-box {
+    margin-top: 48px;
+    padding: 32px 36px;
+    background: linear-gradient(135deg, var(--M-lt) 0%, #fff 100%);
+    border-radius: 12px;
+    border: 1px solid rgba(174,20,168,.2);
+    text-align: center;
+}
+.cinque-per-mille-box h3 { font-size: 20px; font-weight: 600; margin-bottom: 12px; }
+.cinque-per-mille-box p  { font-size: 14px; color: var(--TM); font-weight: 300; max-width: 520px; margin: 0 auto; line-height: 1.75; }
+.cf-badge {
+    display: inline-block;
+    font-family: 'Lora', serif;
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--M);
+    letter-spacing: 2px;
+    margin: 16px auto 0;
+    padding: 10px 24px;
+    border: 2px solid var(--M);
+    border-radius: 8px;
+}
+
+/* ── Contacts ───────────────────────────────────────────────── */
+.contact-box { border: 1px solid var(--B); border-radius: 8px; overflow: hidden; }
+.contact-col { padding: 48px 44px; }
+.contact-col h3 { font-size: 18px; font-weight: 600; margin-bottom: 28px; }
+
+.contact-link {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 18px 0;
+    border-bottom: 1px solid var(--B-lt);
+    text-decoration: none;
+    color: var(--T);
+    transition: color .15s, padding-left .15s;
+}
+.contact-link:hover { color: var(--M); padding-left: 4px; }
+.contact-link.no-click { cursor: default; }
+.contact-link.no-click:hover { padding-left: 0; color: var(--T); }
+.contact-link.no-border { border-bottom: none; }
+
+.contact-icon { flex-shrink: 0; }
+.contact-icon img { width: 22px; height: 22px; }
+.contact-icon svg { width: 22px; height: 22px; }
+
+.link-label {
+    font-size: 14.5px;
+    font-weight: 400;
+    color: inherit;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    text-decoration-color: transparent;
+    transition: text-decoration-color .15s;
+}
+.contact-link:hover .link-label { text-decoration-color: var(--M); }
+.sub-label { font-size: 12px; color: var(--TL); font-weight: 300; margin-top: 3px; }
+
+.qr-btn {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    background: none;
+    border: 1px solid var(--B);
+    border-radius: 100px;
+    padding: 6px 12px;
+    cursor: pointer;
+    color: var(--TM);
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: .5px;
+    font-family: 'DM Sans', sans-serif;
+    flex-shrink: 0;
+    transition: border-color .15s, color .15s, background .15s;
+}
+.qr-btn:hover { border-color: var(--M); color: var(--M); background: var(--M-lt); }
+
+.patrocinio-box {
+    margin-top: 32px;
+    padding: 20px 24px;
+    background: var(--BG);
+    border-radius: 6px;
+    border: 1px solid var(--B-lt);
+}
+.patrocinio-box p { font-size: 12.5px; color: var(--TL); font-weight: 300; line-height: 1.7; }
+
+/* ── Dati legali box ────────────────────────────────────────── */
+.dati-legali {
+    margin-top: 32px;
+    padding: 20px 24px;
+    background: var(--BG);
+    border-radius: 6px;
+    border: 1px solid var(--B-lt);
+}
+.dati-legali p { font-size: 12.5px; color: var(--TL); font-weight: 300; line-height: 1.9; }
+.dati-legali strong { color: var(--TM); font-weight: 500; }
+
+/* ── Modal ──────────────────────────────────────────────────── */
+.modal-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 200;
+    background: rgba(20,13,19,.6);
+    backdrop-filter: blur(6px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.modal-body {
+    border-radius: 16px;
+    overflow: hidden;
+    line-height: 0;
+    box-shadow: 0 32px 80px rgba(0,0,0,.35);
+    animation: qr-pop .24s cubic-bezier(0.34,1.56,0.64,1);
+}
+@keyframes qr-pop {
+    from { opacity: 0; transform: scale(.85) }
+    to   { opacity: 1; transform: scale(1)  }
+}
+.qr-img { display: block; width: min(80vw, 380px); height: auto; border-radius: 16px; }
+
+/* ── Footer ─────────────────────────────────────────────────── */
+footer {
+    background: #0e0a0e;
+    padding: 72px 0 40px;
+}
+.footer-content {
+    max-width: var(--max-w);
+    margin: 0 auto;
+    padding: 0 var(--pad-x);
+}
+.footer-email-item { margin-top: 8px; }
+footer .grid-3 {
+    padding-bottom: 56px;
+    border-bottom: 1px solid #1e161d;
+    margin-bottom: 32px;
+    gap: 60px;
+}
+.footer-logo { margin-bottom: 16px; }
+.footer-info {
+    font-size: 13.5px;
+    color: #5a4d59;
+    line-height: 1.8;
+    font-weight: 300;
+}
+.footer-heading {
+    font-size: 11px;
+    font-weight: 500;
+    color: #d0c8cf;
+    letter-spacing: 1.8px;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+}
+.footer-links { list-style: none; display: flex; flex-direction: column; gap: 12px; }
+.footer-links a { word-break: break-all; overflow-wrap: anywhere; }
+.footer-links a, .footer-btn {
+    font-size: 13.5px;
+    color: #5a4d59;
+    text-decoration: none;
+    font-weight: 300;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-family: 'DM Sans', sans-serif;
+    text-align: left;
+    transition: color .15s;
+}
+.footer-links a:hover, .footer-btn:hover { color: #d0c8cf; }
+.footer-bottom { display: flex; justify-content: space-between; align-items: center; }
+.copyright { font-size: 12px; color: #3a2e39; }
+.footer-social-icons { display: flex; gap: 20px; }
+.footer-social-icons a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px; height: 36px;
+    border-radius: 50%;
+    border: 1px solid #1e161d;
+    color: #5a4d59;
+    transition: border-color .15s, color .15s, background .15s;
+}
+.footer-social-icons a:hover {
+    border-color: var(--M);
+    color: var(--M);
+    background: rgba(174,20,168,.08);
+}
+.footer-social-icons img { width: 18px; height: 18px; }
+.footer-social-icons svg { width: 18px; height: 18px; }
+
+/* ── Fade-in ─────────────────────────────────────────────────── */
+.fade-in {
+    opacity: 0;
+    transform: translateY(22px);
+    transition: opacity .6s ease, transform .6s ease;
+}
+.fade-in.visible { opacity: 1; transform: translateY(0); }
+
+/* ── Responsive ─────────────────────────────────────────────── */
+@media (max-width: 1024px) {
+    .hero-grid { grid-template-columns: 1fr 360px; }
+    .hero-title { font-size: clamp(32px, 4vw, 52px); }
+    section { padding: 96px 0; }
+    .sostieni-grid { grid-template-columns: 1fr 1fr; }
+}
+
+@media (max-width: 800px) {
+    :root { --nav-h: 60px; }
+
+    .nav-desktop, .nav-cta { display: none !important; }
+    .nav-mobile-btn { display: flex !important; }
+
+    section { padding: 64px 0 !important; }
+
+    .section-hero { padding: 0 !important; }
+
+    .hero-grid {
+        grid-template-columns: 1fr !important;
+        min-height: auto;
+        max-height: none;
+    }
+    .hero-text-col {
+        padding: 52px var(--pad-x) 48px;
+        order: 2;
+    }
+    .hero-image-wrapper {
+        order: 1;
+        height: 280px;
+    }
+    .hero-image-wrapper::after {
+        background: linear-gradient(180deg, transparent 50%, var(--W) 100%);
+    }
+    .hero-image-wrapper img { object-position: center 20%; }
+    .hero-title  { font-size: 30px; line-height: 1.25; }
+    .hero-lead   { font-size: 15px; }
+    .btn-group   { flex-direction: column; gap: 10px; margin-top: 28px; }
+    .btn-group .btn { width: 100%; justify-content: center; padding: 14px 20px; }
+
+    .grid-2 { grid-template-columns: 1fr !important; gap: 32px; }
+    .grid-3 { grid-template-columns: 1fr !important; gap: 0; }
+
+    .services-border { border: none; border-radius: 0; }
+    .service-card {
+        padding: 32px 0;
+        border-right: none !important;
+        border-bottom: 1px solid var(--B);
+        border-radius: 0;
+    }
+    .service-card:last-child { border-bottom: none; }
+
+    .testimonial-box { padding: 36px 28px; }
+    .testimonial-box::before { font-size: 80px; left: 20px; top: 12px; }
+    .testimonial-box blockquote { font-size: 18px; }
+
+    .step-row { padding: 22px 20px; }
+
+    .grid-2.gap-32 { grid-template-columns: 1fr 1fr !important; gap: 16px; }
+    .stat-card { padding: 24px 20px; }
+    .stat-num { font-size: 28px; }
+
+    .bacheca-container { grid-template-columns: 1fr; gap: 28px; }
+
+    .contact-box { border: none; border-radius: 0; }
+    .contact-col { padding: 36px 0; }
+    .border-right { border-right: none !important; border-bottom: 1px solid var(--B); }
+    .contact-link { padding: 16px 0; }
+
+    .event-card-main { padding: 36px 28px; }
+    .event-card-main::before { display: none; }
+
+    .sostieni-grid { grid-template-columns: 1fr !important; }
+    .iban-box { flex-direction: column; gap: 16px; }
+
+    footer { padding: 48px 0 28px; }
+    footer .grid-3 {
+        grid-template-columns: 1fr !important;
+        gap: 40px;
+        padding-bottom: 40px;
+    }
+    .footer-bottom { flex-direction: column; gap: 16px; text-align: center; }
+    .footer-social-icons { justify-content: center; }
+
+    .mt-56 { margin-top: 40px; }
+    .mt-64 { margin-top: 40px; }
+    .mt-48 { margin-top: 32px; }
+    h2 { font-size: 26px; }
+    h1 { font-size: 30px; }
+
+    .atena-box { padding: 24px 20px; }
+
+    .event-banner { padding: 24px 20px; }
+    .event-banner-title { font-size: 18px; }
+}
+
+@media (max-width: 400px) {
+    .hero-title { font-size: 26px; }
+    h2 { font-size: 23px; }
+    .grid-2.gap-32 { grid-template-columns: 1fr !important; }
+    .testimonial-box { padding: 28px 20px; }
+    .contact-col { padding: 28px 0; }
+}
+
+@media (min-width: 350px) and (max-width: 800px) {
+    footer .grid-3 {
+        grid-template-columns: 1fr 1fr !important;
+        gap: 36px;
+    }
+    footer .grid-3 > div:first-child {
+        grid-column: span 2;
+        margin-bottom: 8px;
+    }
+}
+</style>
+</head>
+<body>
+
+<!-- ── Nav ──────────────────────────────────────────────────────── -->
+<nav aria-label="Navigazione principale" id="main-nav">
+    <div class="nav-inner">
+        <a class="nav-logo" href="#hero" aria-label="Torna in cima">
+            <picture>
+                <source srcset="assets/logo-small.svg" type="image/svg+xml">
+                <source srcset="assets/Logo-322px.png 2x, assets/logo-365px.png 3x" media="(min-width: 800px)">
+                <source srcset="assets/logo-161px.png 1x, assets/Logo-322px.png 2x">
+                <img src="assets/logo-161px.png" alt="Guerriere da Sempre" width="464" height="161" style="width: auto; height: 36px;">
+            </picture>
+        </a>
+
+        <ul class="nav-desktop" role="list">
+            <li><a class="nav-link" href="#chi-siamo">Chi siamo</a></li>
+            <li><a class="nav-link" href="#passa-parrucca">Passa Parrucca</a></li>
+            <li><a class="nav-link" href="#come-aiutiamo">Come ti aiutiamo</a></li>
+            <li><a class="nav-link" href="#eventi">Eventi</a></li>
+            <li><a class="nav-link" href="#contatti">Contatti</a></li>
+            <li><a class="nav-cta" href="#sostienici">Sostienici</a></li>
+        </ul>
+
+        <button class="nav-mobile-btn" aria-label="Apri menu" id="hamburger-btn" aria-expanded="false" aria-controls="mobile-drawer">
+            <img class="icon-menu" src="assets/icons/hamburger-nero.svg" alt="" width="20" height="20">
+            <img class="icon-x hidden" src="assets/icons/hamburger-nero.svg" alt="" width="20" height="20" style="transform: rotate(45deg);">
+        </button>
+    </div>
+</nav>
+
+<div id="mobile-drawer" class="hidden" role="navigation" aria-label="Menu mobile">
+    <a class="nav-link" href="#chi-siamo">Chi siamo</a>
+    <a class="nav-link" href="#passa-parrucca">Passa Parrucca</a>
+    <a class="nav-link" href="#come-aiutiamo">Come ti aiutiamo</a>
+    <a class="nav-link" href="#eventi">Eventi</a>
+    <a class="nav-link" href="#sostienici" style="color: var(--M); font-weight: 500;">Sostienici</a>
+    <a class="nav-link" href="#contatti">Contatti</a>
+</div>
+
+<main>
+
+    <!-- ══════════════════════════════════════════════════════════
+         HERO
+    ═══════════════════════════════════════════════════════════ -->
+    <section class="section-hero" id="hero">
+        <div class="hero-grid">
+            <div class="hero-text-col">
+                <p class="eyebrow fade-in">Gessate (MI) · Fondata nel 2025</p>
+                <h1 class="hero-title fade-in">Nessuna guerriera<br>combatte <em class="text-italic">da sola</em>.</h1>
+                <p class="hero-lead fade-in">L'Associazione di volontariato Guerriere da Sempre nasce da un'esperienza vissuta sulla propria pelle: essere presenti, ogni giorno, per ogni donna che affronta il percorso del tumore nel territorio della Martesana.</p>
+                <div class="hero-pillars fade-in">
+                    <span class="hero-pillar">💪 Supporto fisico</span>
+                    <span class="hero-pillar">🤝 Supporto morale</span>
+                    <span class="hero-pillar">💄 Supporto estetico</span>
+                </div>
+                <div class="btn-group fade-in">
+                    <a class="btn btn-primary" href="#passa-parrucca">Scopri il Passa Parrucca</a>
+                    <a class="btn btn-outline" href="#sostienici">Sostienici</a>
+                </div>
+                <!-- Anteprima evento imminente -->
+                <div class="event-banner fade-in">
+                    <div>
+                        <p class="event-banner-dates">3 · 4 · 5 Luglio 2026</p>
+                        <p class="event-banner-title">Birra in Pink</p>
+                        <p class="event-banner-sub">Festa della Birra Solidale · Villa Daccò, Gessate</p>
+                    </div>
+                    <a class="event-banner-cta" href="#eventi">Scopri l'evento →</a>
+                </div>
+            </div>
+            <div class="hero-image-wrapper fade-in">
+                <picture>
+                    <source srcset="assets/atena.svg" type="image/svg+xml">
+                    <img src="assets/atena-938px.jpg" alt="Atena, simbolo dell'Associazione Guerriere da Sempre: dea greca della saggezza e della guerra, scelta come logo perché ogni donna porta in sé una guerriera" width="938" height="1507">
+                </picture>
+            </div>
+        </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════════════════════
+         CHI SIAMO
+    ═══════════════════════════════════════════════════════════ -->
+    <section class="section-white" id="chi-siamo">
+        <div class="container">
+            <p class="eyebrow fade-in">Chi siamo</p>
+            <h2 class="fade-in">Un'Associazione di donne, per le donne.</h2>
+            <div class="divider fade-in"></div>
+
+            <div class="grid-2">
+                <div class="fade-in">
+                    <p>L'Associazione di volontariato Guerriere da Sempre ha messo le sue radici a Gessate nel 2025. Nata dall'unione di storie vissute sulla propria pelle, la nostra realtà conosce a fondo cosa significhi svegliarsi al mattino e fare fatica a riconoscersi allo specchio. Sappiamo cosa vuol dire abitare la paura e non trovare le parole giuste per esprimerla.</p>
+                    <p class="mt-16">Da questa profonda consapevolezza è nata la nostra missione: non aspettare che il supporto necessario arrivasse dall'alto, ma strutturarlo e offrirlo in modo concreto. L'Associazione è oggi un punto di riferimento stabile sul territorio di Gessate e della Martesana, che cresce grazie a una rete sempre più ampia di volontarie e sostenitori.</p>
+
+                    <!-- Storie delle fondatrici -->
+                    <div class="mt-40">
+                        <div class="founder-card">
+                            <h4>Serena Vecera – Presidente</h4>
+                            <p>Serena ha attraversato in prima persona il percorso della malattia oncologica. È stata proprio quella esperienza diretta — la perdita temporanea di capelli, la fatica quotidiana, la ricerca di qualcuno che capisse davvero — a farle capire che il supporto non può essere solo medico. Dopo aver ritrovato forza e identità, ha deciso di trasformare quella vulnerabilità in azione: fondare un luogo dove nessuna donna dovesse sentirsi sola.</p>
+                        </div>
+                        <div class="founder-card">
+                            <h4>Elena Pozzi – Vice Presidente</h4>
+                            <p>Elena ha vissuto la malattia da vicino come presenza accanto a persone care. Da quella posizione ha imparato quanto sia prezioso, e spesso mancante, il supporto pratico: chi accompagna a una visita, chi chiama solo per sentire come stai, chi non ha paura di stare nel silenzio di un momento difficile. È da quella consapevolezza che ha scelto di co-fondare l'Associazione e di costruire, insieme a Serena, una rete di vicinanza concreta.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="fade-in">
+                    <p>Non siamo un freddo ambulatorio né uno sportello burocratico. Siamo un'associazione fatta di persone: una mano tesa, una voce che risponde al telefono, qualcuno pronto a prendere un caffè insieme o ad accompagnare nella scelta di una parrucca con la stessa cura, rispetto e attenzione che si riserverebbero a una sorella.</p>
+                    <p class="mt-16">Il nostro nome racchiude la nostra intera filosofia: guerriere lo si è sempre state, molto prima di una diagnosi. La malattia non definisce chi sei, fa solo emergere una forza che già ti apparteneva. L'Associazione esiste per ricordartelo.</p>
+
+                    <div class="quote-card">
+                        <p class="quote-text">"Guerriere lo si è sempre state, molto prima della diagnosi."</p>
+                    </div>
+
+                    <!-- Il logo / Atena -->
+                    <div class="atena-box">
+                        <h3>Il simbolo: Atena</h3>
+                        <p>Atena è la dea greca della saggezza e della guerra strategica: non la forza bruta, ma l'intelligenza, il coraggio consapevole, la capacità di proteggere. È il simbolo perfetto per chi affronta la malattia con determinazione e testa alta.</p>
+                        <p class="mt-8">Il nostro logo nasce da qualcosa di ancora più personale: è un tatuaggio che la figlia della Presidente Serena ha scelto di farsi durante la malattia della madre, come atto d'amore e di speranza. Quell'immagine è diventata il cuore visivo dell'Associazione: un segno che la forza si tramanda, si condivide, si porta sulla pelle.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════════════════════
+         PASSA PARRUCCA
+    ═══════════════════════════════════════════════════════════ -->
+    <section class="section-tinted" id="passa-parrucca">
+        <div class="container">
+            <p class="eyebrow fade-in">Il nostro servizio principale</p>
+            <h2 class="fade-in">Passa Parrucca</h2>
+            <div class="divider fade-in"></div>
+
+            <div class="grid-2 items-start mt-56">
+                <div class="fade-in">
+                    <p>Perdere i capelli durante la chemioterapia non è un dettaglio. È una delle cose che più pesano, perché tocca l'immagine di sé ogni volta che ci si guarda allo specchio. Per questo abbiamo costruito una piccola biblioteca di parrucche — donate da donne che hanno finito le cure — che mettiamo a disposizione gratuitamente di chi ne ha bisogno.</p>
+                    <p class="mt-16">Il servizio è completamente gratuito e dura per tutto il tempo delle cure. Quando i capelli tornano, la parrucca viene restituita, igienizzata con cura professionale e rimessa a disposizione della prossima guerriera. Un gesto semplice, una catena di solidarietà concreta.</p>
+                    <p class="mt-16">Puoi <strong>richiedere una parrucca</strong> se sei in chemioterapia, oppure <strong>donarne una</strong> se hai finito le cure e vuoi che la tua faccia la stessa strada per qualcun'altra.</p>
+                    <div class="mt-24">
+                        <a class="btn btn-primary" href="#contatti">Prenota una consulenza</a>
+                    </div>
+                </div>
+
+                <div class="steps-box fade-in">
+                    <div class="step-row">
+                        <span class="step-num">01</span>
+                        <div>
+                            <h4>Scrivici o chiamaci</h4>
+                            <p>Contattaci via Instagram, Facebook, TikTok o WhatsApp. Rispondiamo noi direttamente — Serena o Elena — senza call center né moduli da compilare.</p>
+                        </div>
+                    </div>
+                    <div class="step-row">
+                        <span class="step-num">02</span>
+                        <div>
+                            <h4>Consulenza riservata a Gessate</h4>
+                            <p>Ci vediamo in uno spazio intimo e privato. Ti mostriamo i modelli disponibili e ti aiutiamo a scegliere quello più adatto a te, con calma e senza fretta.</p>
+                        </div>
+                    </div>
+                    <div class="step-row">
+                        <span class="step-num">03</span>
+                        <div>
+                            <h4>La tieni per tutto il tempo che ti serve</h4>
+                            <p>Non ci sono scadenze né burocrazia. La parrucca rimane tua finché ne hai bisogno, per tutto il percorso di cure.</p>
+                        </div>
+                    </div>
+                    <div class="step-row">
+                        <span class="step-num">04</span>
+                        <div>
+                            <h4>La restituisci, la catena continua</h4>
+                            <p>Una volta finita, la parrucca torna a noi, viene igienizzata e donata alla prossima donna che ne ha bisogno. Il cerchio si chiude e ricomincia.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════════════════════
+         COME TI AIUTIAMO
+    ═══════════════════════════════════════════════════════════ -->
+    <section class="section-white" id="come-aiutiamo">
+        <div class="container">
+            <p class="eyebrow fade-in">I tre pilastri</p>
+            <h2 class="fade-in">Come ti aiutiamo.</h2>
+            <div class="divider fade-in"></div>
+
+            <div class="grid-3 services-border mt-56">
+                <div class="service-card fade-in">
+                    <div class="service-icon">
+                        <img src="assets/icons/cammina.svg" alt="" width="28" height="28">
+                    </div>
+                    <h3>Supporto fisico</h3>
+                    <p>Accompagnamento individuale alle visite mediche per chi non ha qualcuno vicino. Uscite insieme — camminate nella natura, un caffè, una gita — perché il corpo si cura anche attraverso il movimento e la compagnia. Siamo lì, in carne e ossa.</p>
+                </div>
+                <div class="service-card fade-in">
+                    <div class="service-icon">
+                        <img src="assets/icons/chat-viola.svg" alt="" width="28" height="28">
+                    </div>
+                    <h3>Supporto morale</h3>
+                    <p>Non è terapia clinica: è la voce di chi ci è già passata. Gruppi d'ascolto tra pari, condivisione di paure, dubbi e piccoli traguardi quotidiani. Una rete di donne che si tengono — da amica ad amica, da guerriera a guerriera.</p>
+                </div>
+                <div class="service-card fade-in">
+                    <div class="service-icon">
+                        <img src="assets/icons/estetica-viola.svg" alt="" width="28" height="28">
+                    </div>
+                    <h3>Supporto estetico</h3>
+                    <p>Trucco oncologico per imparare a valorizzarsi durante le cure, consigli pratici su ciglia e sopracciglia, e sessioni di make-up curativo per aiutarti a riconoscerti allo specchio. Perché la dignità non si mette in pausa.</p>
+                </div>
+            </div>
+
+            <div class="grid-2 gap-32 mt-64">
+                <div class="stat-card fade-in">
+                    <p class="stat-num">2025</p>
+                    <p class="stat-label">Anno di fondazione</p>
+                    <p class="stat-desc">Nate dall'esperienza diretta, non da un piano aziendale.</p>
+                </div>
+                <div class="stat-card fade-in">
+                    <p class="stat-num">100%</p>
+                    <p class="stat-label">Servizio gratuito</p>
+                    <p class="stat-desc">Il Passa Parrucca e tutti i nostri servizi non hanno costi. Mai. Per nessuna.</p>
+                </div>
+                <div class="stat-card fade-in">
+                    <p class="stat-num">Gessate</p>
+                    <p class="stat-label">Radicamento locale</p>
+                    <p class="stat-desc">Patrocinio del Comune, spazi comunali, presenza reale sul territorio della Martesana.</p>
+                </div>
+                <div class="stat-card fade-in">
+                    <p class="stat-num">Sempre</p>
+                    <p class="stat-label">Risposta personale</p>
+                    <p class="stat-desc">Non un chatbot, non un form. Elena o Serena, in persona.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════════════════════
+         UNA VOCE DALLA COMUNITÀ
+    ═══════════════════════════════════════════════════════════ -->
+    <section class="section-tinted">
+        <div class="container">
+            <p class="eyebrow fade-in">Una voce dalla comunità</p>
+            <h2 class="fade-in">Chi ci ha già incontrato.</h2>
+            <div class="divider fade-in"></div>
+            <div class="mt-48">
+                <div class="testimonial-box fade-in">
+                    <blockquote>Non pensavo che qualcuno potesse capire davvero cosa si prova. Serena mi ha accompagnata alla visita in silenzio, tenendomi la mano. Non ho dovuto spiegare niente. Quella mattina ho capito che non ero sola.</blockquote>
+                    <cite>
+                        <strong>M., 48 anni</strong>
+                        Gessate, 2025
+                    </cite>
+                </div>
+            </div>
+            <div class="text-center mt-40 fade-in">
+                <p class="mb-16 font-300 text-medium">Hai una storia da raccontare? Scrivici: ogni voce aiuta un'altra donna a trovare la strada.</p>
+                <a class="btn btn-outline" href="#contatti">Racconta la tua storia</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════════════════════
+         EVENTI
+    ═══════════════════════════════════════════════════════════ -->
+    <section class="section-white" id="eventi">
+        <div class="container">
+            <p class="eyebrow fade-in">Cosa stiamo organizzando</p>
+            <h2 class="fade-in">Eventi</h2>
+            <div class="divider fade-in"></div>
+
+            <!-- Birra in Pink – evento in evidenza -->
+            <div class="event-card-main fade-in mt-56">
+                <p class="eyebrow">Prossimo evento · 3–4–5 Luglio 2026</p>
+                <h3>Birra in Pink<br><span style="font-weight: 400; font-style: italic;">Festa della Birra Solidale</span></h3>
+                <p class="mt-16">Prima edizione della Festa della Birra Solidale organizzata da Guerriere da Sempre. Tre serate di festa, musica e birra artigianale per sostenere concretamente le donne in cura oncologica sul territorio della Martesana. Ogni serata è un modo per stare insieme, far conoscere l'Associazione e raccogliere fondi per continuare a offrire i nostri servizi gratuitamente.</p>
+                <div class="event-detail-row">
+                    <svg style="width:16px;height:16px;flex-shrink:0;" viewBox="0 0 24 24" fill="none" stroke="#b09ab0" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+                    <span><strong>3, 4 e 5 luglio 2026</strong> — dalle ore 18:00</span>
+                </div>
+                <div class="event-detail-row">
+                    <svg style="width:16px;height:16px;flex-shrink:0;" viewBox="0 0 24 24" fill="none" stroke="#b09ab0" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
+                    <span><strong>Villa Daccò</strong>, Gessate (MI)</span>
+                </div>
+                <div class="btn-group" style="margin-top: 32px;">
+                    <a class="btn btn-primary" href="#contatti">Partecipa o collabora</a>
+                    <a class="btn btn-outline" href="#sostienici" style="color: #b09ab0; border-color: #3a2e39;">Sostieni l'evento</a>
+                </div>
+            </div>
+
+            <!-- Bacheca volantini -->
+            <div class="mt-64 fade-in">
+                <p class="eyebrow">Comunicazioni ed eventi passati</p>
+                <h3 style="font-size: 20px; margin-bottom: 16px;">Bacheca Volantini</h3>
+                <p class="font-300 text-medium" style="font-size: 14px; margin-bottom: 40px;">Tutte le nostre iniziative, incontri ed eventi sul territorio della Martesana.</p>
+                <div id="bacheca-gallery" class="bacheca-container">
+                    <p class="text-medium font-300">Caricamento dei volantini in corso…</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════════════════════
+         SOSTIENICI
+    ═══════════════════════════════════════════════════════════ -->
+    <section class="section-tinted" id="sostienici">
+        <div class="container">
+            <p class="eyebrow fade-in">Fai la differenza</p>
+            <h2 class="fade-in">Sostienici.</h2>
+            <div class="divider fade-in"></div>
+            <p class="hero-lead fade-in" style="max-width: 640px;">Tutto quello che facciamo è gratuito per le donne che lo ricevono. Possiamo farlo grazie a chi sceglie di stare dalla nostra parte. Ci sono tanti modi per sostenerci — scegli quello che fa per te.</p>
+
+            <div class="sostieni-grid">
+                <div class="sostieni-card fade-in">
+                    <div class="sostieni-icon">🎗️</div>
+                    <h3>Dona una parrucca</h3>
+                    <p>Hai finito le cure e vuoi che la tua parrucca continui a fare del bene? Regalala alla prossima guerriera. Scrivici e organizziamo insieme come fartela consegnare.</p>
+                    <a class="btn btn-outline" href="#contatti">Contattaci</a>
+                </div>
+                <div class="sostieni-card fade-in">
+                    <div class="sostieni-icon">❤️</div>
+                    <h3>Contributo economico</h3>
+                    <p>Ogni donazione va direttamente a finanziare parrucche, materiali per l'estetica oncologica e le attività di supporto. Nessuna burocrazia: il tuo contributo arriva dove serve.</p>
+                    <a class="btn btn-primary" href="mailto:guerrieredasempre@gmail.com?subject=Donazione%20Guerriere%20da%20Sempre">Scrivi per donare</a>
+                </div>
+                <div class="sostieni-card fade-in">
+                    <div class="sostieni-icon">🤝</div>
+                    <h3>Diventa volontaria</h3>
+                    <p>Cerchiamo donne con il desiderio di dare. Non serve esperienza specifica: serve presenza, ascolto e voglia di fare parte di qualcosa di reale. Scrivici.</p>
+                    <a class="btn btn-outline" href="#contatti">Unisciti a noi</a>
+                </div>
+                <div class="sostieni-card fade-in">
+                    <div class="sostieni-icon">🏢</div>
+                    <h3>Partnership aziendale</h3>
+                    <p>La tua azienda vuole sostenere un progetto di welfare locale e prevenzione oncologica? Possiamo costruire insieme una collaborazione su misura — sponsorizzazione eventi, donazioni, volontariato aziendale.</p>
+                    <a class="btn btn-outline" href="mailto:guerrieredasempre@gmail.com?subject=Partnership%20aziendale">Proponi una collaborazione</a>
+                </div>
+                <div class="sostieni-card fade-in">
+                    <div class="sostieni-icon">🍺</div>
+                    <h3>Partecipa a Birra in Pink</h3>
+                    <p>La Festa della Birra Solidale del 3–5 luglio 2026 a Gessate è anche un modo per sostenerci. Vieni, porta amici, diffondi la voce. Più siamo, più possiamo fare.</p>
+                    <a class="btn btn-outline" href="#eventi">Scopri l'evento</a>
+                </div>
+                <div class="sostieni-card fade-in">
+                    <div class="sostieni-icon">📣</div>
+                    <h3>Passa la parola</h3>
+                    <p>Condividi la nostra pagina Instagram o Facebook. Racconta di noi a chi potrebbe aver bisogno di supporto. Ogni condivisione può raggiungere la donna giusta al momento giusto.</p>
+                    <a class="btn btn-outline" href="https://www.instagram.com/guerrieredasempre/" target="_blank" rel="noopener">Vai su Instagram</a>
+                </div>
+            </div>
+
+            <!-- 5x1000 -->
+            <div class="cinque-per-mille-box fade-in">
+                <h3>5×1000 a Guerriere da Sempre</h3>
+                <p>Nella tua dichiarazione dei redditi puoi destinare il 5×1000 all'Associazione senza che ti costi nulla in più. Indica il codice fiscale dell'Associazione nella sezione "Sostegno al volontariato".</p>
+                <div class="cf-badge">CF 91607220158</div>
+            </div>
+
+            <!-- IBAN (placeholder: da aggiornare con IBAN reale quando disponibile) -->
+            <!--
+            <div class="iban-box fade-in">
+                <div>
+                    <h3>Bonifico bancario</h3>
+                    <p>Intestato a: Guerriere da Sempre – Associazione di volontariato</p>
+                    <p class="iban-code">IT00 X000 0000 0000 0000 0000 000</p>
+                </div>
+                <div>
+                    <p style="font-size: 13px; color: var(--TM);">Causale consigliata:<br><em>"Donazione Guerriere da Sempre"</em></p>
+                </div>
+            </div>
+            -->
+        </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════════════════════
+         CONTATTI
+    ═══════════════════════════════════════════════════════════ -->
+    <section class="section-white" id="contatti">
+        <div class="container">
+            <p class="eyebrow fade-in">Scrivici</p>
+            <h2 class="fade-in">Ci siamo noi.</h2>
+            <div class="divider fade-in"></div>
+            <p class="hero-lead fade-in">Non c'è né centralino, né form da compilare. Rispondono Serena o Elena, di persona.</p>
+
+            <div class="grid-2 contact-box mt-56 fade-in">
+                <div class="contact-col border-right">
+                    <h3>Dove siamo</h3>
+                    <a href="https://maps.google.com/?q=Via+Sandro+Pertini+10+Gessate+MI" target="_blank" rel="noopener noreferrer" class="contact-link">
+                        <span class="contact-icon">
+                            <img src="assets/icons/maps-viola.svg" alt="" width="20" height="20">
+                        </span>
+                        <div>
+                            <p class="link-label">Via Sandro Pertini, 10 – 20060 Gessate (MI)</p>
+                            <p class="sub-label">Spazi comunali · su appuntamento</p>
+                        </div>
+                    </a>
+                    <a href="mailto:guerrieredasempre@gmail.com" class="contact-link">
+                        <span class="contact-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 7 10-7"/></svg>
+                        </span>
+                        <div>
+                            <p class="link-label">guerrieredasempre@gmail.com</p>
+                            <p class="sub-label">Email ordinaria</p>
+                        </div>
+                    </a>
+                    <a href="mailto:guerrieredasempre@pec.it" class="contact-link">
+                        <span class="contact-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 7 10-7"/><path d="m17 14 3 3M17 17l3-3" stroke-width="2"/></svg>
+                        </span>
+                        <div>
+                            <p class="link-label">guerrieredasempre@pec.it</p>
+                            <p class="sub-label">PEC (comunicazioni formali)</p>
+                        </div>
+                    </a>
+                    <div class="contact-link no-click">
+                        <span class="contact-icon">
+                            <img src="assets/icons/orologio-viola.svg" alt="" width="20" height="20">
+                        </span>
+                        <div>
+                            <p class="link-label" style="text-decoration:none;">Risposta entro poche ore</p>
+                            <p class="sub-label">Siamo volontarie. Nessuna richiesta resta senza risposta.</p>
+                        </div>
+                    </div>
+
+                    <div class="dati-legali">
+                        <p>
+                            <strong>Guerriere da Sempre</strong><br>
+                            Associazione di volontariato<br>
+                            Via Sandro Pertini, 10 – 20060 Gessate (MI)<br>
+                            Codice Fiscale: <strong>91607220158</strong><br>
+                            PEC: guerrieredasempre@pec.it
+                        </p>
+                    </div>
+                </div>
+
+                <div class="contact-col">
+                    <h3>Scrivici sui social</h3>
+                    <a href="https://www.instagram.com/guerrieredasempre/" target="_blank" rel="noopener noreferrer" class="contact-link items-center">
+                        <span class="contact-icon">
+                            <img src="assets/icons/ig-icon-viola.svg" alt="" width="20" height="20">
+                        </span>
+                        <div style="flex: 1;">
+                            <p class="link-label">@guerrieredasempre</p>
+                        </div>
+                        <button class="qr-btn" data-qr="instagram" title="Mostra QR code Instagram">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:14px;height:14px;"><rect x="3" y="3" width="5" height="5" rx=".5"/><rect x="16" y="3" width="5" height="5" rx=".5"/><rect x="3" y="16" width="5" height="5" rx=".5"/><rect x="5" y="5" width="1" height="1"/><rect x="18" y="5" width="1" height="1"/><rect x="5" y="18" width="1" height="1"/><path d="M16 16h2v2h-2zM20 16h1v1h-1zM16 20h1v1h-1zM18 18h3v3h-3z"/><path d="M10 3v3M10 8v1M3 10h3M8 10h1M10 13v3M13 3h1M13 8h1M13 13h1M13 18h1"/></svg>
+                            QR
+                        </button>
+                    </a>
+                    <a href="https://www.facebook.com/guerrieredasempre" target="_blank" rel="noopener noreferrer" class="contact-link items-center">
+                        <span class="contact-icon">
+                            <img src="assets/icons/fb-icon-viola.svg" alt="" width="20" height="20">
+                        </span>
+                        <div style="flex: 1;">
+                            <p class="link-label">Guerriere da Sempre</p>
+                        </div>
+                        <button class="qr-btn" data-qr="facebook" title="Mostra QR code Facebook">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:14px;height:14px;"><rect x="3" y="3" width="5" height="5" rx=".5"/><rect x="16" y="3" width="5" height="5" rx=".5"/><rect x="3" y="16" width="5" height="5" rx=".5"/><rect x="5" y="5" width="1" height="1"/><rect x="18" y="5" width="1" height="1"/><rect x="5" y="18" width="1" height="1"/><path d="M16 16h2v2h-2zM20 16h1v1h-1zM16 20h1v1h-1zM18 18h3v3h-3z"/><path d="M10 3v3M10 8v1M3 10h3M8 10h1M10 13v3M13 3h1M13 8h1M13 13h1M13 18h1"/></svg>
+                            QR
+                        </button>
+                    </a>
+                    <a href="http://www.tiktok.com/@_guerriere.da.sempre_" target="_blank" rel="noopener noreferrer" class="contact-link no-border items-center">
+                        <span class="contact-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5v3a3 3 0 0 1-3-3v5a4 4 0 0 1-4-4z"></path></svg>
+                        </span>
+                        <div style="flex: 1;">
+                            <p class="link-label">@_guerriere.da.sempre_</p>
+                        </div>
+                        <button class="qr-btn" data-qr="tiktok" title="Mostra QR code TikTok">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:14px;height:14px;"><rect x="3" y="3" width="5" height="5" rx=".5"/><rect x="16" y="3" width="5" height="5" rx=".5"/><rect x="3" y="16" width="5" height="5" rx=".5"/><rect x="5" y="5" width="1" height="1"/><rect x="18" y="5" width="1" height="1"/><rect x="5" y="18" width="1" height="1"/><path d="M16 16h2v2h-2zM20 16h1v1h-1zM16 20h1v1h-1zM18 18h3v3h-3z"/><path d="M10 3v3M10 8v1M3 10h3M8 10h1M10 13v3M13 3h1M13 8h1M13 13h1M13 18h1"/></svg>
+                            QR
+                        </button>
+                    </a>
+
+                    <div class="patrocinio-box">
+                        <p>Il Comune di Gessate patrocina l'Associazione e mette a disposizione gli spazi per le consulenze e gli eventi sul territorio.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</main>
+
+<!-- ── Modali QR ─────────────────────────────────────────────── -->
+<div id="qr-modal-instagram" class="modal-overlay hidden" role="dialog" aria-label="QR code Instagram">
+    <div class="modal-body">
+        <picture>
+            <img src="assets/QR-ig-500px.webp" alt="QR code Instagram @guerrieredasempre" width="500" height="574" class="qr-img">
+        </picture>
+    </div>
+</div>
+
+<div id="qr-modal-facebook" class="modal-overlay hidden" role="dialog" aria-label="QR code Facebook">
+    <div class="modal-body">
+        <picture>
+            <img src="assets/QR-fb-500px.webp" alt="QR code Facebook Guerriere da Sempre" width="500" height="500" class="qr-img">
+        </picture>
+    </div>
+</div>
+
+<div id="qr-modal-tiktok" class="modal-overlay hidden" role="dialog" aria-label="QR code TikTok">
+    <div class="modal-body">
+        <picture>
+            <img src="assets/QR-tt-500px.webp" alt="QR code TikTok @_guerriere.da.sempre_" width="500" height="500" class="qr-img">
+        </picture>
+    </div>
+</div>
+
+<!-- ── Footer ────────────────────────────────────────────────── -->
+<footer>
+    <div class="container footer-content">
+        <div class="grid-3">
+            <div>
+                <div class="footer-logo">
+                    <picture>
+                        <source srcset="assets/logo-small.svg" type="image/svg+xml">
+                        <source srcset="assets/Logo-322px.png 2x, assets/logo-365px.png 3x">
+                        <img src="assets/logo-161px.png" alt="Guerriere da Sempre" width="464" height="161" style="width: auto; height: 40px; filter: brightness(0) invert(1);">
+                    </picture>
+                </div>
+                <p class="footer-info">
+                    Associazione di volontariato fondata da Serena ed Elena.<br>
+                    <address style="font-style: normal; display: inline; color: #5a4d59;">Via Sandro Pertini, 10 – 20060 Gessate (MI)<br>
+                    C.F. 91607220158 · PEC: guerrieredasempre@pec.it</address><br>
+                    Con il patrocinio del Comune di Gessate. Attive dal 2025.
+                </p>
+            </div>
+            <div>
+                <h5 class="footer-heading">Navigazione</h5>
+                <ul class="footer-links">
+                    <li><a href="#chi-siamo">Chi siamo</a></li>
+                    <li><a href="#passa-parrucca">Passa Parrucca</a></li>
+                    <li><a href="#come-aiutiamo">Come ti aiutiamo</a></li>
+                    <li><a href="#eventi">Eventi</a></li>
+                    <li><a href="#sostienici">Sostienici</a></li>
+                    <li><a href="#contatti">Contatti</a></li>
+                </ul>
+            </div>
+            <div>
+                <h5 class="footer-heading">Seguici</h5>
+                <ul class="footer-links">
+                    <li><a href="https://www.instagram.com/guerrieredasempre/" target="_blank" rel="noopener">Instagram</a></li>
+                    <li><a href="https://www.facebook.com/guerrieredasempre" target="_blank" rel="noopener">Facebook</a></li>
+                    <li><a href="http://www.tiktok.com/@_guerriere.da.sempre_" target="_blank" rel="noopener">TikTok</a></li>
+                    <li class="footer-email-item"><a href="mailto:guerrieredasempre@gmail.com">guerrieredasempre@gmail.com</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p class="copyright">© 2026 Guerriere da Sempre · Associazione di volontariato · Gessate (MI)</p>
+            <div class="footer-social-icons">
+                <a href="https://www.instagram.com/guerrieredasempre/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                    <img src="assets/icons/ig-icon-nero.svg" alt="Instagram" width="20" height="20">
+                </a>
+                <a href="https://www.facebook.com/guerrieredasempre" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+                    <img src="assets/icons/fb-icon-nero.svg" alt="Facebook" width="20" height="20">
+                </a>
+                <a href="http://www.tiktok.com/@_guerriere.da.sempre_" target="_blank" rel="noopener noreferrer" aria-label="TikTok">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:20px;height:20px;" aria-hidden="true"><path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5v3a3 3 0 0 1-3-3v5a4 4 0 0 1-4-4z"></path></svg>
+                </a>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script>
+    // ── Nav: highlight link attivo durante lo scroll ──────────────
+    const sections = document.querySelectorAll('section[id], div[id]');
+    const navLinks = document.querySelectorAll('.nav-link');
+
+    const observerOptions = {
+        root: null,
+        rootMargin: '-60px 0px -40% 0px',
+        threshold: 0
+    };
+
+    const sectionObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const id = entry.target.getAttribute('id');
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href') === `#${id}`) {
+                        link.classList.add('active');
+                    }
+                });
+            }
+        });
+    }, observerOptions);
+
+    sections.forEach(s => sectionObserver.observe(s));
+
+    // ── Nav: ombra allo scroll ─────────────────────────────────────
+    window.addEventListener('scroll', () => {
+        document.getElementById('main-nav').classList.toggle('scrolled', window.scrollY > 10);
+    });
+
+    // ── Hamburger mobile ──────────────────────────────────────────
+    const hamburgerBtn = document.getElementById('hamburger-btn');
+    const mobileDrawer = document.getElementById('mobile-drawer');
+    const iconMenu = document.querySelector('.icon-menu');
+    const iconX = document.querySelector('.icon-x');
+
+    hamburgerBtn.addEventListener('click', () => {
+        const isOpen = !mobileDrawer.classList.contains('hidden');
+        mobileDrawer.classList.toggle('hidden', isOpen);
+        iconMenu.classList.toggle('hidden', !isOpen);
+        iconX.classList.toggle('hidden', isOpen);
+        hamburgerBtn.setAttribute('aria-expanded', String(!isOpen));
+        hamburgerBtn.setAttribute('aria-label', isOpen ? 'Apri menu' : 'Chiudi menu');
+    });
+
+    // chiude il drawer al click su un link interno
+    mobileDrawer.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+            mobileDrawer.classList.add('hidden');
+            iconMenu.classList.remove('hidden');
+            iconX.classList.add('hidden');
+            hamburgerBtn.setAttribute('aria-expanded', 'false');
+            hamburgerBtn.setAttribute('aria-label', 'Apri menu');
+        });
+    });
+
+    // ── Fade-in scroll ───────────────────────────────────────────
+    function initScrollAnimations() {
+        const fadeElements = document.querySelectorAll('.fade-in:not(.visible)');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry, index) => {
+                if (entry.isIntersecting) {
+                    setTimeout(() => entry.target.classList.add('visible'), index * 80);
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.08 });
+        fadeElements.forEach(el => observer.observe(el));
+    }
+
+    // ── Modali QR ─────────────────────────────────────────────────
+    function closeAllModals() {
+        document.querySelectorAll('.modal-overlay').forEach(m => m.classList.add('hidden'));
+    }
+
+    document.querySelectorAll('.qr-btn').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            const qrType = btn.getAttribute('data-qr');
+            const targetModal = document.getElementById(`qr-modal-${qrType}`);
+            if (targetModal) targetModal.classList.remove('hidden');
+        });
+    });
+
+    document.querySelectorAll('.modal-overlay').forEach(modal => {
+        modal.addEventListener('click', () => modal.classList.add('hidden'));
+        modal.querySelector('.modal-body').addEventListener('click', e => e.stopPropagation());
+    });
+
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') closeAllModals(); });
+
+    // ── Bacheca Google Drive ──────────────────────────────────────
+    async function loadBachecaImages() {
+        const gallery = document.getElementById('bacheca-gallery');
+        if (!gallery) return;
+
+        const apiKey = 'AIzaSyBOFCXDUfQo4I-nxEy72wqSKOMctayjqW0';
+        const folderId = '1Md5bbkUSGFOjD0hSsjNSrK2xx9DVJ1hi';
+        const url = `https://www.googleapis.com/drive/v3/files?q='${folderId}'+in+parents+and+trashed=false&key=${apiKey}&fields=files(id,name,mimeType)&orderBy=name`;
+
+        try {
+            const response = await fetch(url);
+            if (!response.ok) throw new Error('Errore nel recupero file da Google Drive');
+            const data = await response.json();
+            const imageFiles = data.files.filter(f => f.mimeType.startsWith('image/'));
+
+            if (imageFiles.length === 0) {
+                gallery.innerHTML = '<p class="text-medium font-300">Al momento non ci sono volantini in bacheca.</p>';
+                return;
+            }
+
+            gallery.innerHTML = '';
+            imageFiles.forEach(file => {
+                const card = document.createElement('div');
+                card.className = 'bacheca-card fade-in';
+                const imageUrl = `https://drive.google.com/thumbnail?id=${file.id}&sz=w800`;
+                card.innerHTML = `<img src="${imageUrl}" alt="${file.name}" loading="lazy" onerror="this.onerror=null;this.src='https://placehold.co/600x800?text=Immagine+non+disponibile';">`;
+                gallery.appendChild(card);
+            });
+            initScrollAnimations();
+        } catch (error) {
+            console.error('Errore Bacheca:', error);
+            gallery.innerHTML = '<p class="text-medium font-300" style="color:#ae14a8;">Non è stato possibile caricare i volantini. Riprova più tardi.</p>';
+        }
+    }
+
+    // ── Init ──────────────────────────────────────────────────────
+    document.addEventListener('DOMContentLoaded', () => {
+        initScrollAnimations();
+        loadBachecaImages();
+    });
+</script>
+</body>
+</html>
